@@ -60,6 +60,7 @@ e.g. typing *`help`* and pressing kbd:[Enter] will open the help window.
 Shows the list of commands and their usages.
 
 Format:
+
 `help`
 
 === Exiting the app: `help`
@@ -77,6 +78,7 @@ Format:
 Create a contact.
 
 Format:
+
 `contact create NAME [--p PHONE_NUMBER] [--e EMAIL] [--a ADDRESS] [--d DESCRIPTION]`
 
 Examples:
@@ -92,6 +94,7 @@ Examples:
 List all contacts in application.
 
 Format:
+
 `list`
 
 === Display the profile of a person: `show` `[coming in v2.0]`
@@ -99,6 +102,7 @@ Format:
 List all contacts in application.
 
 Format:
+
 `contact show CONTACT_ID`
 
 Examples:
@@ -137,6 +141,7 @@ Examples:
 Lists all contacts whose name matches the given keyword.
 
 Format:
+
 `contact find KEYWORD`
 
 Examples:
@@ -148,6 +153,7 @@ Examples:
 Edits contact information.
 
 Format:
+
 `contact pin CONTACT_ID`
 
 Examples:
@@ -159,13 +165,15 @@ Examples:
 Clears all data that you have in your contact list. Before executing this command, the application will also ask for confirmation through the chatbot because you won’t be able to undo this operation.
 
 Format:
+
 `contact clear`
 
 Examples:
 
 * `contact clear`
   Executing this command will trigger a confirmation in the chatbot: +
-  `Are you sure that you want to clear all data in your contact list? (Y/N)`+
+  `Are you sure that you want to clear all data in your contact list? (Y/N)`
+
 
   Then, if you answer "Y", the chatbot will clear all data in your contact list.
 
