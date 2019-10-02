@@ -59,14 +59,14 @@ e.g. typing *`help`* and pressing kbd:[Enter] will open the help window.
 
 Shows the list of commands and their usages.
 
-Format: 
+Format:
 `help`
 
 === Exiting the app: `help`
 
 Exits the application.
 
-Format: 
+Format:
 `bye`
 
 
@@ -76,7 +76,7 @@ Format:
 
 Create a contact.
 
-Format: 
+Format:
 `contact create NAME [--p PHONE_NUMBER] [--e EMAIL] [--a ADDRESS] [--d DESCRIPTION]`
 
 Examples:
@@ -91,14 +91,14 @@ Examples:
 
 List all contacts in application.
 
-Format: 
+Format:
 `list`
 
 === Display the profile of a person: `show` `[coming in v2.0]`
 
 List all contacts in application.
 
-Format: 
+Format:
 `contact show CONTACT_ID`
 
 Examples:
@@ -109,7 +109,7 @@ Examples:
 
 Edits contact information.
 
-Format: 
+Format:
 
 `contact edit CONTACT_ID [--n NAME] [--p PHONE_NUMBER] [--e EMAIL] [--a ADDRESS] [--d DESCRIPTION]`
 
@@ -123,7 +123,7 @@ Disclaimer: partial edit will be supported in v2.0
 
 Deletes a contact with the following id.
 
-Format: 
+Format:
 
 `contact delete CONTACTID`
 
@@ -136,7 +136,7 @@ Examples:
 
 Lists all contacts whose name matches the given keyword.
 
-Format: 
+Format:
 `contact find KEYWORD`
 
 Examples:
@@ -147,7 +147,7 @@ Examples:
 
 Edits contact information.
 
-Format: 
+Format:
 `contact pin CONTACT_ID`
 
 Examples:
@@ -158,16 +158,16 @@ Examples:
 
 Clears all data that you have in your contact list. Before executing this command, the application will also ask for confirmation through the chatbot because you won’t be able to undo this operation.
 
-Format: 
+Format:
 `contact clear`
 
 Examples:
 
 * `contact clear`
-  Executing this command will trigger a confirmation in the chatbot:
-  `Are you sure that you want to clear all data in your contact list? (Y/N)`
-  
-  Then, if you answer “Y”, the chatbot will clear all data in your contact list.
+  Executing this command will trigger a confirmation in the chatbot: +
+  `Are you sure that you want to clear all data in your contact list? (Y/N)`+
+
+  Then, if you answer "Y", the chatbot will clear all data in your contact list.
 
 
 
