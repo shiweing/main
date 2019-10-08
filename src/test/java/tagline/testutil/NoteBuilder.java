@@ -40,8 +40,8 @@ public class NoteBuilder {
         + "of the most able individuals humankind has to offer. The Initiative will "
         + "defend Earth from imminent global threats that are beyond the warfighting "
         + "capability of conventional military forces.";
-    public static final String DEFAULT_TIMECREATED = "13-May-1995 15:35:08:PM";
-    public static final String DEFAULT_TIMELASTUPDATED = "13-May-1995 15:35:08:PM";
+    public static final String DEFAULT_TIMECREATED = "13-May-1995 15:35:08";
+    public static final String DEFAULT_TIMELASTUPDATED = "13-May-1995 15:35:08";
     //public static final String DEFAULT_EMAIL = "alice@gmail.com";
     //public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
 
@@ -55,10 +55,10 @@ public class NoteBuilder {
         title = new Title(DEFAULT_TITLE);
         content = new Content(DEFAULT_CONTENT);
         //refactor These two classes to return with the same Instant instance
-        timeCreated = new TimeCreated();
-        timeLastEdited = new TimeLastEdited();
-        //timeCreated = new TimeCreated(new Date(DEFAULT_TIMECREATED));
-        //timeLastEdited = new TimeLastEdited(new Date(DEFAULT_TIMELASTUPDATED));
+        //timeCreated = new TimeCreated();
+        //timeLastEdited = new TimeLastEdited();
+        timeCreated = new TimeCreated(new Date(DEFAULT_TIMECREATED));
+        timeLastEdited = new TimeLastEdited(new Date(DEFAULT_TIMELASTUPDATED));
 
         tags = new HashSet<>();
     }

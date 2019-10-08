@@ -38,8 +38,8 @@ public class TypicalNotes {
         + "a part of ourselves. Today, we have a chance to take it all back. You know "
         + "your teams. You know your missions. Get the stones. Get them back.\""
         + "-- Steve Rogers";
-    public static final String TIMECREATED_TIMEHEIST = "16-Oct-2023 08:38:09:AM";
-    public static final String TIMELASTUPDATED_TIMEHEIST= "17-Oct-2023 17:19:18:PM";
+    public static final String TIMECREATED_TIMEHEIST = "16-Oct-2023 08:38:09";
+    public static final String TIMELASTUPDATED_TIMEHEIST= "17-Oct-2023 17:19:18";
 
     public static final String TITLE_ULTRON = "Ultron Offensive";
     public static final String CONTENT_ULTRON = "The Ultron Offensive[1] was a series "
@@ -50,8 +50,8 @@ public class TypicalNotes {
         + "scale destructive battle in the Eastern European country of Sokovia, where "
         + "the Avengers, aided by new members and allied forces from the former "
         + "S.H.I.E.L.D. agency, defeated Ultron. ";
-    public static final String TIMECREATED_ULTRON = "29-Apr-2015 07:19:05:AM";
-    public static final String TIMELASTUPDATED_ULTRON = "06-May-2015 22:18:11:PM";
+    public static final String TIMECREATED_ULTRON = "29-Apr-2015 07:19:05";
+    public static final String TIMELASTUPDATED_ULTRON = "06-May-2015 22:18:11";
 
     public static final Note TIMEHEIST = new NoteBuilder().withTitle(TITLE_TIMEHEIST)
             .withContent(CONTENT_TIMEHEIST).withTimeCreated(TIMECREATED_TIMEHEIST)
@@ -61,14 +61,21 @@ public class TypicalNotes {
             .withContent(CONTENT_ULTRON).withTimeCreated(TIMECREATED_ULTRON)
             .withTimeLastUpdated(TIMELASTUPDATED_ULTRON).build();
 
-    //public static final Note ALICE = new NoteBuilder().withName("Alice Pauline")
-    //        .withAddress("123, Jurong West Ave 6, #08-111").withEmail("alice@example.com")
-    //        .withPhone("94351253")
-    //        .withTags("friends").build();
-    //public static final Note BENSON = new NoteBuilder().withName("Benson Meier")
-    //        .withAddress("311, Clementi Ave 2, #02-25")
-    //        .withEmail("johnd@example.com").withPhone("98765432")
-    //        .withTags("owesMoney", "friends").build();
+    ////public static final Note TIMEHEIST = new NoteBuilder().withTitle("time heist")
+    ////        .withContent("scotlang woosh").withTimeCreated("16-Oct-2023 08:38:09")
+    ////        .withTimeLastUpdated("17-Oct-2023 17:19:18").build();
+
+    ////public static final Note ULTRON = new NoteBuilder().withTitle("Ultron Offensive")
+    ////        .withContent("Ultron is here").withTimeCreated("29-Apr-2015 07:19:05")
+    ////        .withTimeLastUpdated("06-May-2015 22:18:11").build();
+    ////public static final Note ALICE = new NoteBuilder().withName("Alice Pauline")
+    ////        .withAddress("123, Jurong West Ave 6, #08-111").withEmail("alice@example.com")
+    ////        .withPhone("94351253")
+    ////        .withTags("friends").build();
+    ////public static final Note BENSON = new NoteBuilder().withName("Benson Meier")
+    ////        .withAddress("311, Clementi Ave 2, #02-25")
+    ////        .withEmail("johnd@example.com").withPhone("98765432")
+    ////        .withTags("owesMoney", "friends").build();
 
     // Manually added
     //public static final Note HOON = new NoteBuilder().withName("Hoon Meier").withPhone("8482424")
@@ -101,5 +108,6 @@ public class TypicalNotes {
 
     public static List<Note> getTypicalNotes() {
         return new ArrayList<>(Arrays.asList(PROTECTOR, INCIDENT, TIMEHEIST, ULTRON));
+        //return new ArrayList<>(Arrays.asList(PROTECTOR, INCIDENT ));
     }
 }

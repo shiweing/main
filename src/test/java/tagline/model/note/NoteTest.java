@@ -46,7 +46,7 @@ public class NoteTest {
         //// same name, same phone, different attributes -> returns true
         //editedProtector = new NoteBuilder(PROTECTOR).withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB)
         //        .withTags(VALID_TAG_HUSBAND).build();
-        //assertTrue(PROTECTOR.isSameNote(editedProtector));
+       //assertTrue(PROTECTOR.isSameNote(editedProtector));
 
         //// same name, same email, different attributes -> returns true
         //editedProtector = new NoteBuilder(PROTECTOR).withPhone(VALID_PHONE_BOB).withAddress(VALID_ADDRESS_BOB)

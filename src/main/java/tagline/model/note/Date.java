@@ -24,8 +24,11 @@ public class Date {
 
     public final Instant date;
     public static ZoneId timezone = ZoneId.systemDefault();
+    public static final DateTimeFormatter INPUT_TEST_FORMATTER =
+            DateTimeFormatter.ofPattern("dd-MMM-yyyy HH:mm:ss");
     public static final DateTimeFormatter HUMAN_READABLE_FORMATTER =
-            DateTimeFormatter.ofPattern("dd MMM yyyy, hh:mma");
+            DateTimeFormatter.ofPattern("dd-MMM-yyyy, hh:mma");
+            //DateTimeFormatter.ofPattern("dd MMM yyyy, hh:mma");
 
     /**
      * Constructs an {@code TimeCreated}.
@@ -40,7 +43,8 @@ public class Date {
 
     public Date(String dateString) {
         requireNonNull(dateString);
-        this.date = (LocalDateTime.parse(dateString).atZone(timezone).toInstant());
+        this.date = (LocalDateTime.parse(dateString, INPUT_TEST_FORMATTER).atZone(timezone).toInstant());
+        //this.date = Instant.now();
         //did not use this(LocalDateTime...toInstant()) since then i cannot use requireNonNull
     }
 
