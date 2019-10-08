@@ -22,8 +22,8 @@ public class Date {
 
 
     public final Instant date;
-    private static ZoneId timezone = ZoneId.systemDefault();
-    private static final DateTimeFormatter HUMAN_READABLE_FORMATTER =
+    public static ZoneId timezone = ZoneId.systemDefault();
+    public static final DateTimeFormatter HUMAN_READABLE_FORMATTER =
             DateTimeFormatter.ofPattern("dd MMM yyyy, hh:mma");
 
     /**
