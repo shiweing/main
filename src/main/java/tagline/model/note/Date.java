@@ -1,6 +1,7 @@
 package tagline.model.note;
 
 import java.time.Instant;
+import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 
@@ -35,6 +36,12 @@ public class Date {
         //use of Date an dinstant is inspired by Woemucat
         requireNonNull(date);
         this.date = date;
+    }
+
+    public Date(String dateString) {
+        requireNonNull(dateString);
+        this.date = (LocalDateTime.parse(dateString).atZone(timezone).toInstant());
+        //did not use this(LocalDateTime...toInstant()) since then i cannot use requireNonNull
     }
 
     @Override

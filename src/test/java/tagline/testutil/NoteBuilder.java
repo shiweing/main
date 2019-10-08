@@ -7,6 +7,7 @@ import tagline.model.person.Address;
 import tagline.model.person.Email;
 import tagline.model.person.Name;
 import tagline.model.note.Note;
+import tagline.model.note.Date;
 import tagline.model.note.Title;
 import tagline.model.note.Content;
 import tagline.model.note.TimeLastEdited;
@@ -16,8 +17,6 @@ import tagline.model.person.Phone;
 import tagline.model.tag.Tag;
 import tagline.model.util.SampleDataUtil;
 
-import static tagline.model.note.Date.HUMAN_READABLE_FORMATTER;
-import static tagline.model.note.Date.timezone;
 
 /**
  * A utility class to help with building Note objects.
@@ -36,11 +35,13 @@ public class NoteBuilder {
     private Email email;
     private Address address;
 
-    public static final String DEFAULT_TITLE= "The Protector Initiative";
-    public static final String DEFAULT_CONTENT= "Phase 1:\n A response team comprised "
+    public static final String DEFAULT_TITLE = "The Protector Initiative";
+    public static final String DEFAULT_CONTENT = "Phase 1:\n A response team comprised "
         + "of the most able individuals humankind has to offer. The Initiative will "
         + "defend Earth from imminent global threats that are beyond the warfighting "
         + "capability of conventional military forces.";
+    public static final String DEFAULT_TIMECREATED = "13-May-1995 15:35:08:PM";
+    public static final String DEFAULT_TIMELASTUPDATED = "13-May-1995 15:35:08:PM";
     //public static final String DEFAULT_EMAIL = "alice@gmail.com";
     //public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
 
@@ -56,6 +57,8 @@ public class NoteBuilder {
         //refactor These two classes to return with the same Instant instance
         timeCreated = new TimeCreated();
         timeLastEdited = new TimeLastEdited();
+        //timeCreated = new TimeCreated(new Date(DEFAULT_TIMECREATED));
+        //timeLastEdited = new TimeLastEdited(new Date(DEFAULT_TIMELASTUPDATED));
 
         tags = new HashSet<>();
     }
@@ -102,7 +105,7 @@ public class NoteBuilder {
      */
     public NoteBuilder withTimeCreated(String timestamp) {
         // need to add new feature into Date thingy
-        this.timeCreated = new TimeCreated();
+        this.timeCreated = new TimeCreated(new Date(timestamp));
         return this;
     }
 
@@ -110,7 +113,7 @@ public class NoteBuilder {
      * Sets the {@code TimeLastEdited} of the {@code Note} that we are building.
      */
     public NoteBuilder withTimeLastUpdated(String timestamp) {
-        this.timeLastEdited = new TimeLastEdited();
+        this.timeLastEdited = new TimeLastEdited(new Date(timestamp));
         return this;
     }
 

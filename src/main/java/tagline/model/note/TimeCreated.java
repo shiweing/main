@@ -1,6 +1,7 @@
 package tagline.model.note;
 
 import java.time.Instant;
+import static java.util.Objects.requireNonNull;
 
 
 /**
@@ -27,6 +28,10 @@ public class TimeCreated {
         date = new Date(Instant.now());
     }
 
+    public TimeCreated(Date date) {
+        requireNonNull(date);
+        this.date = date;
+    }
 
     @Override
     public String toString() {

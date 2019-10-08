@@ -2,6 +2,8 @@ package tagline.model.note;
 
 import java.time.Instant;
 
+import static java.util.Objects.requireNonNull;
+
 
 /**
  * Represents a Note's content in the note book.
@@ -27,6 +29,10 @@ public class TimeLastEdited {
         date = new Date(Instant.now());
     }
 
+    public TimeLastEdited(Date date) {
+        requireNonNull(date);
+        this.date = date;
+    }
 
     @Override
     public String toString() {
