@@ -1,13 +1,13 @@
 package tagline.model.note;
 
-import java.time.Instant;
-
 import static java.util.Objects.requireNonNull;
+
+import java.time.Instant;
 
 
 /**
- * Represents a Note's content in the note book.
- * Guarantees: immutable; is valid as declared in {@link #(String)}
+ * Represents a Note's Time when it was Last Edited in the note book.
+ * Guarantees: immutable; is valid as declared in @link #(String)}
  */
 public class TimeLastEdited {
 
@@ -22,7 +22,7 @@ public class TimeLastEdited {
     public final Date date;
 
     /**
-     * Constructs an {@code TimeLastEdited}.
+     * Constructs an @code TimeLastEdited}.
      *
      */
     public TimeLastEdited() {

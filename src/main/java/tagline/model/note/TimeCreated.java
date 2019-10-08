@@ -1,12 +1,13 @@
 package tagline.model.note;
 
-import java.time.Instant;
 import static java.util.Objects.requireNonNull;
+
+import java.time.Instant;
 
 
 /**
- * Represents a Note's content in the note book.
- * Guarantees: immutable; is valid as declared in {@link #(String)}
+ * Represents a Note's time when it is created
+ * Guarantees: immutable; is valid as declared in @link #(String)}
  */
 public class TimeCreated {
 

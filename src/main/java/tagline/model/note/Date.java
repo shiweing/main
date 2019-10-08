@@ -1,16 +1,17 @@
 package tagline.model.note;
 
+import static java.util.Objects.requireNonNull;
+//import static tagline.commons.util.AppUtil.checkArgument;
+
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 
-import static java.util.Objects.requireNonNull;
-import static tagline.commons.util.AppUtil.checkArgument;
 
 /**
  * Represents a Note's content in the note book.
- * Guarantees: immutable; is valid as declared in {@link #(String)}
+ * Guarantees: immutable; is valid as declared in @link #(String)}
  */
 public class Date {
 
@@ -22,13 +23,15 @@ public class Date {
      */
 
 
-    public final Instant date;
-    public static ZoneId timezone = ZoneId.systemDefault();
+    //public static ZoneId timezone = ZoneId.systemDefault();
     public static final DateTimeFormatter INPUT_TEST_FORMATTER =
             DateTimeFormatter.ofPattern("dd-MMM-yyyy HH:mm:ss");
     public static final DateTimeFormatter HUMAN_READABLE_FORMATTER =
             DateTimeFormatter.ofPattern("dd-MMM-yyyy, hh:mma");
-            //DateTimeFormatter.ofPattern("dd MMM yyyy, hh:mma");
+
+    private static ZoneId timezone = ZoneId.systemDefault();
+
+    public final Instant date;
 
     /**
      * Constructs an {@code TimeCreated}.
