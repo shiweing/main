@@ -16,23 +16,26 @@ import tagline.model.tag.Tag;
 public class Note {
 
     // Identity fields
+    //private final Id id;
     private final Title title;
-    private final Phone phone;
-    private final Email email;
+    private final Content content;
+    private final TimeCreated timeCreated;
 
     // Data fields
-    private final Address address;
+    private final TimeLastEdited timeLastEdited;
     private final Set<Tag> tags = new HashSet<>();
 
     /**
      * Every field must be present and not null.
      */
-    public Note(Title title, Phone phone, Email email, Address address, Set<Tag> tags) {
-        requireAllNonNull(title, phone, email, address, tags);
+    public Note(Title title, Content content, TimeCreated timeCreated,
+        TimeLastEdited timeLastEdited, Set<Tag> tags) {
+
+        requireAllNonNull(title, content, timeCreated, timeLastEdited, tags);
         this.title = title;
-        this.phone = phone;
-        this.email = email;
-        this.address = address;
+        this.content = content;
+        this.timeCreated = timeCreated;
+        this.timeLastEdited = timeLastEdited;
         this.tags.addAll(tags);
     }
 
@@ -40,16 +43,16 @@ public class Note {
         return title;
     }
 
-    public Phone getPhone() {
-        return phone;
+    public Content getContent() {
+        return content;
     }
 
-    public Email getEmail() {
-        return email;
+    public TimeCreated getTimeCreated() {
+        return timeCreated;
     }
 
-    public Address getAddress() {
-        return address;
+    public TimeLastEdited getTimeLastEdited() {
+        return timeLastEdited;
     }
 
     /**
@@ -70,8 +73,9 @@ public class Note {
         }
 
         return otherNote != null
-                && otherNote.getTitle().equals(getTitle())
-                && (otherNote.getPhone().equals(getPhone()) || otherNote.getEmail().equals(getEmail()));
+                //this part should be .equals(getId()), title will be optional i guess
+                && otherNote.getContent().equals(getContent());
+                //&& (otherNote.getPhone().equals(getPhone()) || otherNote.getEmail().equals(getEmail()));
     }
 
     /**
@@ -90,28 +94,28 @@ public class Note {
 
         Note otherNote = (Note) other;
         return otherNote.getTitle().equals(getTitle())
-                && otherNote.getPhone().equals(getPhone())
-                && otherNote.getEmail().equals(getEmail())
-                && otherNote.getAddress().equals(getAddress())
+                && otherNote.getContent().equals(getContent())
+                && otherNote.getTimeCreated().equals(getTimeCreated())
+                && otherNote.getTimeLastEdited().equals(getTimeLastEdited())
                 && otherNote.getTags().equals(getTags());
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(title, phone, email, address, tags);
+        return Objects.hash(title, content, timeCreated, timeLastEdited, tags);
     }
 
     @Override
     public String toString() {
         final StringBuilder builder = new StringBuilder();
         builder.append(getTitle())
-                .append(" Phone: ")
-                .append(getPhone())
-                .append(" Email: ")
-                .append(getEmail())
-                .append(" Address: ")
-                .append(getAddress())
+                .append(" Content: ")
+                .append(getContent())
+                .append(" Time Created: ")
+                .append(getTimeCreated())
+                .append(" Time Last Edited: ")
+                .append(getTimeLastEdited())
                 .append(" Tags: ");
         getTags().forEach(builder::append);
         return builder.toString();

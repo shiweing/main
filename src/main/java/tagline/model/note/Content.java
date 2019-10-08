@@ -4,12 +4,12 @@ import static java.util.Objects.requireNonNull;
 import static tagline.commons.util.AppUtil.checkArgument;
 
 /**
- * Represents a Person's address in the address book.
- * Guarantees: immutable; is valid as declared in {@link #isValidAddress(String)}
+ * Represents a Note's content in the note book.
+ * Guarantees: immutable; is valid as declared in {@link #isValidContent(String)}
  */
 public class Content {
 
-    public static final String MESSAGE_CONSTRAINTS = "Addresses can take any values, and it should not be blank";
+    public static final String MESSAGE_CONSTRAINTS = "Content can take any values, and it should not be blank";
 
     /*
      * The first character of the address must not be a whitespace,
@@ -20,20 +20,20 @@ public class Content {
     public final String value;
 
     /**
-     * Constructs an {@code Address}.
+     * Constructs an {@code Content}.
      *
-     * @param address A valid address.
+     * @param content A valid content.
      */
-    public Content(String address) {
-        requireNonNull(address);
-        checkArgument(isValidAddress(address), MESSAGE_CONSTRAINTS);
-        value = address;
+    public Content(String content) {
+        requireNonNull(content);
+        checkArgument(isValidContent(content), MESSAGE_CONSTRAINTS);
+        value = content;
     }
 
     /**
      * Returns true if a given string is a valid email.
      */
-    public static boolean isValidAddress(String test) {
+    public static boolean isValidContent(String test) {
         return test.matches(VALIDATION_REGEX);
     }
 
@@ -45,8 +45,8 @@ public class Content {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof Address // instanceof handles nulls
-                && value.equals(((Address) other).value)); // state check
+                || (other instanceof Content // instanceof handles nulls
+                && value.equals(((Content) other).value)); // state check
     }
 
     @Override
