@@ -12,6 +12,7 @@ public class NoteId {
 
     public static final String MESSAGE_CONSTRAINTS =
             "NoteId numbers should only contain numbers, and it should be at least 3 digits long";
+
     //public static final String VALIDATION_REGEX = "\\d{1,}";
     public final Long value;
     //public final String value;
@@ -27,6 +28,10 @@ public class NoteId {
         value = Long.valueOf(idNumber);
     }
 
+    public NoteId() {
+        value = NoteIdCounter.incrementThenGetValue();
+    }
+
     /**
      * Returns true if a given string is a valid phone number.
      */
@@ -36,7 +41,8 @@ public class NoteId {
 
     @Override
     public String toString() {
-        return String.valueOf(value);
+        String formattedNoteId = String.format("%05d", value);
+        return formattedNoteId; //String.valueOf(value);
     }
 
     @Override
