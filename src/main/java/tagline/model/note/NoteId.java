@@ -13,9 +13,6 @@ public class NoteId {
     public static final String MESSAGE_CONSTRAINTS =
             "NoteId numbers should only contain numbers, and it should be at least 3 digits long";
 
-    //private static long noteIdCounter = 0;
-    //private NoteIdCounter noteIdCounter;
-
     //public static final String VALIDATION_REGEX = "\\d{1,}";
     public final Long value;
     //public final String value;
