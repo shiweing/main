@@ -2,6 +2,7 @@ package tagline.model.note;
 
 //import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 //import static tagline.testutil.Assert.assertThrows;
 
 import org.junit.jupiter.api.Test;
@@ -55,45 +56,61 @@ public class NoteIdCounterTest {
         NoteIdCounter.setCount(currCount);
     }
 
-    //@Test
-    //public void toString_test() {
-    //    NoteId one = new NoteId();
-    //    assertEquals("00001", one.toString());
+    @Test
+    public void toString_test() {
+        // Saved the currentCount in NoteIdCounter to be reapplied later
+        // zeroes out the current count to ensure it starts at zero
+        long currCount = NoteIdCounter.getCount();
+        NoteIdCounter.setZero();
 
-    //    NoteId two = new NoteId();
-    //    assertEquals("00002", two.toString());
+        NoteId one = new NoteId();
+        assertEquals("00001", one.toString());
 
-    //    NoteId fifty = new NoteId(50);
-    //    assertEquals("00050", fifty.toString());
+        NoteId two = new NoteId();
+        assertEquals("00002", two.toString());
 
-    //    NoteId hundred = new NoteId(100);
-    //    assertEquals("00100", hundred.toString());
+        NoteId fifty = new NoteId(50);
+        assertEquals("00050", fifty.toString());
 
-    //    NoteId twoThousand = new NoteId(2000);
-    //    assertEquals("02000", twoThousand.toString());
+        NoteId hundred = new NoteId(100);
+        assertEquals("00100", hundred.toString());
 
-    //    NoteId fortyTwoThousand = new NoteId(42000);
-    //    assertEquals("42000", fortyTwoThousand.toString());
+        NoteId twoThousand = new NoteId(2000);
+        assertEquals("02000", twoThousand.toString());
 
-    //    NoteId fiveNines = new NoteId(99999);
-    //    assertEquals("99999", fiveNines.toString());
+        NoteId fortyTwoThousand = new NoteId(42000);
+        assertEquals("42000", fortyTwoThousand.toString());
 
-    //    NoteId countdown = new NoteId(54321);
-    //    assertEquals("54321", countdown.toString());
-    //}
+        NoteId fiveNines = new NoteId(99999);
+        assertEquals("99999", fiveNines.toString());
 
-    //@Test
-    //public void equals_test() {
+        NoteId countdown = new NoteId(54321);
+        assertEquals("54321", countdown.toString());
 
-    //    NoteId one = new NoteId();
-    //    assertTrue(one.equals(new NoteId(1)));
+        // Reset Counter to original value to prevent disruption of other test cases
+        NoteIdCounter.setCount(currCount);
+    }
 
-    //    NoteId two = new NoteId();
-    //    assertTrue(two.equals(new NoteId(2)));
+    @Test
+    public void equals_test() {
 
-    //    NoteId fifty = new NoteId(50);
-    //    assertTrue(fifty.equals(new NoteId(50)));
+        // Saved the currentCount in NoteIdCounter to be reapplied later
+        // zeroes out the current count to ensure it starts at zero
+        long currCount = NoteIdCounter.getCount();
+        NoteIdCounter.setZero();
+        NoteId one = new NoteId();
 
-    //}
+
+        assertTrue(one.equals(new NoteId(1)));
+
+        NoteId two = new NoteId();
+        assertTrue(two.equals(new NoteId(2)));
+
+        NoteId fifty = new NoteId(50);
+        assertTrue(fifty.equals(new NoteId(50)));
+
+        // Reset Counter to original value to prevent disruption of other test cases
+        NoteIdCounter.setCount(currCount);
+    }
 
 }
