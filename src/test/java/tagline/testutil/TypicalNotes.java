@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import tagline.model.AddressBook;
+import tagline.model.NoteBook;
 import tagline.model.note.Note;
 
 /**
@@ -61,13 +61,6 @@ public class TypicalNotes {
             .withContent(CONTENT_ULTRON).withTimeCreated(TIMECREATED_ULTRON)
             .withTimeLastUpdated(TIMELASTUPDATED_ULTRON).build();
 
-    ////public static final Note TIMEHEIST = new NoteBuilder().withTitle("time heist")
-    ////        .withContent("scotlang woosh").withTimeCreated("16-Oct-2023 08:38:09")
-    ////        .withTimeLastUpdated("17-Oct-2023 17:19:18").build();
-
-    ////public static final Note ULTRON = new NoteBuilder().withTitle("Ultron Offensive")
-    ////        .withContent("Ultron is here").withTimeCreated("29-Apr-2015 07:19:05")
-    ////        .withTimeLastUpdated("06-May-2015 22:18:11").build();
     ////public static final Note ALICE = new NoteBuilder().withName("Alice Pauline")
     ////        .withAddress("123, Jurong West Ave 6, #08-111").withEmail("alice@example.com")
     ////        .withPhone("94351253")
@@ -96,14 +89,14 @@ public class TypicalNotes {
     private TypicalNotes() {} // prevents instantiation
 
     /**
-     * Returns an {@code AddressBook} with all the typical persons.
+     * Returns an {@code NoteBook} with all the typical notes.
      */
-    public static AddressBook getTypicalAddressBook() {
-        AddressBook ab = new AddressBook();
-        for (Note person : getTypicalNotes()) {
-            //ab.addNote(person);
+    public static NoteBook getTypicalNoteBook() {
+        NoteBook nb = new NoteBook();
+        for (Note note : getTypicalNotes()) {
+            nb.addNote(note);
         }
-        return ab;
+        return nb;
     }
 
     public static List<Note> getTypicalNotes() {
