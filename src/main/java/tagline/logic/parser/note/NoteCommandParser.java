@@ -1,16 +1,19 @@
 package tagline.logic.parser.note;
 
+import static tagline.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static tagline.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import tagline.logic.commands.Command;
 import tagline.logic.commands.HelpCommand;
 import tagline.logic.commands.note.CreateNoteCommand;
 import tagline.logic.parser.exceptions.ParseException;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import static tagline.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static tagline.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
-
+/**
+ * Parses user input for note commands.
+ */
 public class NoteCommandParser {
     /**
      * Used for initial separation of command word and args.

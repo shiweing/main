@@ -40,7 +40,7 @@ public class Note {
         this.timeLastEdited = timeLastEdited;
         this.tags.addAll(tags);
     }
-  
+
     public Note(NoteId noteid, Content content, TimeCreated timeCreated,
         TimeLastEdited timeLastEdited, Set<Tag> tags) {
 
