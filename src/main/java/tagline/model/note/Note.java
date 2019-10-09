@@ -29,12 +29,25 @@ public class Note {
      * Every field must be present and not null.
      */
     public Note(NoteId noteid, Title title, Content content, TimeCreated timeCreated,
-        TimeLastEdited timeLastEdited, Set<Tag> tags) {
+                TimeLastEdited timeLastEdited, Set<Tag> tags) {
 
         requireAllNonNull(noteid, title, content, timeCreated, timeLastEdited, tags);
 
         this.noteid = noteid;
         this.title = title;
+        this.content = content;
+        this.timeCreated = timeCreated;
+        this.timeLastEdited = timeLastEdited;
+        this.tags.addAll(tags);
+    }
+
+    public Note(NoteId noteid, Content content, TimeCreated timeCreated,
+        TimeLastEdited timeLastEdited, Set<Tag> tags) {
+
+        requireAllNonNull(noteid, content, timeCreated, timeLastEdited, tags);
+
+        this.noteid = noteid;
+        this.title = new Title("this field will be removed");
         this.content = content;
         this.timeCreated = timeCreated;
         this.timeLastEdited = timeLastEdited;

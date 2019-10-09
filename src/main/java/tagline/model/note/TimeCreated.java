@@ -34,6 +34,10 @@ public class TimeCreated {
         this.date = date;
     }
 
+    public Date getTime() {
+        return this.date;
+    }
+
     @Override
     public String toString() {
         return date.toString();
