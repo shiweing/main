@@ -16,7 +16,9 @@ public class NoteIdTest {
 
     @Test
     public void constructor_sequentialId() {
-        //doesnt work now, create a separate class
+        //doesnt work now, create a separate class // has this been resolved??
+        // Saved the currentCount in NoteIdCounter to be reapplied later
+        // zeroes out the current count to ensure it starts at zero
         long currCount = NoteIdCounter.getCount();
         NoteIdCounter.setZero();
 
@@ -31,11 +33,17 @@ public class NoteIdTest {
         NoteId fifty = new NoteId(50);
         assertEquals(50, fifty.value);
 
+        // Reset Counter to original value to prevent disruption of other test cases
         NoteIdCounter.setCount(currCount);
     }
 
     @Test
     public void toString_test() {
+        // Saved the currentCount in NoteIdCounter to be reapplied later
+        // zeroes out the current count to ensure it starts at zero
+        long currCount = NoteIdCounter.getCount();
+        NoteIdCounter.setZero();
+
         NoteId one = new NoteId();
         assertTrue(one.toString().equals("00001"));
         //assertEquals("00001", one.toString());
@@ -67,20 +75,30 @@ public class NoteIdTest {
         NoteId countdown = new NoteId(54321);
         assertTrue(countdown.toString().equals("54321"));
         //assertEquals("54321", countdown.toString());
+
+        // Reset Counter to original value to prevent disruption of other test cases
+        NoteIdCounter.setCount(currCount);
     }
 
     @Test
     public void equals_test() {
 
-        //NoteId one = new NoteId();
-        //assertTrue(one.equals(new NoteId(1)));
+        // Saved the currentCount in NoteIdCounter to be reapplied later
+        // zeroes out the current count to ensure it starts at zero
+        long currCount = NoteIdCounter.getCount();
+        NoteIdCounter.setZero();
 
-        //NoteId two = new NoteId();
-        //assertTrue(two.equals(new NoteId(2)));
+        NoteId one = new NoteId();
+        assertTrue(one.equals(new NoteId(1)));
 
-        //NoteId fifty = new NoteId(50);
-        //assertTrue(fifty.equals(new NoteId(50)));
+        NoteId two = new NoteId();
+        assertTrue(two.equals(new NoteId(2)));
 
+        NoteId fifty = new NoteId(50);
+        assertTrue(fifty.equals(new NoteId(50)));
+
+        // Reset Counter to original value to prevent disruption of other test cases
+        NoteIdCounter.setCount(currCount);
     }
 
 }
