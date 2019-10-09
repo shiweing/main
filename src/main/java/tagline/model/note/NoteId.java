@@ -32,7 +32,7 @@ public class NoteId {
     }
 
     public NoteId() {
-        value = NoteIdCounter.getThenIncrement();
+        value = NoteIdCounter.incrementThenGetValue();
     }
 
     /**

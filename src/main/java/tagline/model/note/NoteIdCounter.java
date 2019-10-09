@@ -5,7 +5,7 @@ package tagline.model.note;
 
 /**
  * Represents a Note's content in the note book.
- * Guarantees: immutable; is valid as declared in
+ * Guarantees:
  */
 public class NoteIdCounter {
 
@@ -45,7 +45,14 @@ public class NoteIdCounter {
     }
 
     // increment then getValue
-    public static long getThenIncrement() {
+
+    /**
+     * Increment the current counter value in NoteIdCounter and returns the new value, this is due to
+     * original value starting at 0, added advantage of this counter being of how many notes has
+     * been created since calling this.
+     * @return long
+     */
+    public static long incrementThenGetValue() {
         ++counter;
         return counter;
     }

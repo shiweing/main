@@ -26,7 +26,7 @@ public class NoteIdCounterTest {
         NoteIdCounter.setZero();
         assertEquals(0, NoteIdCounter.getCount());
 
-        assertEquals(1, NoteIdCounter.getThenIncrement());
+        assertEquals(1, NoteIdCounter.incrementThenGetValue());
         assertEquals(1, NoteIdCounter.getCount());
         NoteIdCounter.setZero();
         assertEquals(0, NoteIdCounter.getCount());
@@ -42,13 +42,13 @@ public class NoteIdCounterTest {
 
         assertEquals(0, NoteIdCounter.getCount());
 
-        assertEquals(1, NoteIdCounter.getThenIncrement());
+        assertEquals(1, NoteIdCounter.incrementThenGetValue());
         assertEquals(1, NoteIdCounter.getCount());
 
-        assertEquals(2, NoteIdCounter.getThenIncrement());
+        assertEquals(2, NoteIdCounter.incrementThenGetValue());
         assertEquals(2, NoteIdCounter.getCount());
 
-        assertEquals(3, NoteIdCounter.getThenIncrement());
+        assertEquals(3, NoteIdCounter.incrementThenGetValue());
         assertEquals(3, NoteIdCounter.getCount());
 
 
