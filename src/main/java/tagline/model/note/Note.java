@@ -16,7 +16,7 @@ import tagline.model.tag.Tag;
 public class Note {
 
     // Identity fields
-    //private final Id id;
+    private final NoteId noteid;
     private final Title title;
     private final Content content;
     private final TimeCreated timeCreated;
@@ -28,15 +28,21 @@ public class Note {
     /**
      * Every field must be present and not null.
      */
-    public Note(Title title, Content content, TimeCreated timeCreated,
+    public Note(NoteId noteid, Title title, Content content, TimeCreated timeCreated,
         TimeLastEdited timeLastEdited, Set<Tag> tags) {
 
-        requireAllNonNull(title, content, timeCreated, timeLastEdited, tags);
+        requireAllNonNull(noteid, title, content, timeCreated, timeLastEdited, tags);
+
+        this.noteid = noteid;
         this.title = title;
         this.content = content;
         this.timeCreated = timeCreated;
         this.timeLastEdited = timeLastEdited;
         this.tags.addAll(tags);
+    }
+
+    public NoteId getNoteId() {
+        return noteid;
     }
 
     public Title getTitle() {
@@ -74,8 +80,9 @@ public class Note {
 
         return otherNote != null
              //this part should be .equals(getId()), title will be optional i guess
-             && otherNote.getContent().equals(getContent())
-             && otherNote.getTimeCreated().equals(getTimeCreated());
+             && otherNote.getNoteId().equals(getNoteId());
+             //&& otherNote.getContent().equals(getContent())
+             //&& otherNote.getTimeCreated().equals(getTimeCreated());
         //&& (otherNote.getPhone().equals(getPhone()) || otherNote.getEmail().equals(getEmail()));
     }
 
@@ -94,7 +101,8 @@ public class Note {
         }
 
         Note otherNote = (Note) other;
-        return otherNote.getTitle().equals(getTitle())
+        return otherNote.getNoteId().equals(getNoteId())
+                && otherNote.getTitle().equals(getTitle())
                 && otherNote.getContent().equals(getContent())
                 && otherNote.getTimeCreated().equals(getTimeCreated())
                 && otherNote.getTimeLastEdited().equals(getTimeLastEdited())
@@ -104,13 +112,15 @@ public class Note {
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(title, content, timeCreated, timeLastEdited, tags);
+        return Objects.hash(noteid, title, content, timeCreated, timeLastEdited, tags);
     }
 
     @Override
     public String toString() {
         final StringBuilder builder = new StringBuilder();
-        builder.append(getTitle())
+        builder.append(getNoteId())
+                .append(" Title: ")
+                .append(getTitle())
                 .append(" Content: ")
                 .append(getContent())
                 .append(" Time Created: ")

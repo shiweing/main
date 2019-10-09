@@ -6,10 +6,10 @@ import java.util.Set;
 import tagline.model.note.Content;
 import tagline.model.note.Date;
 import tagline.model.note.Note;
+import tagline.model.note.NoteId;
 import tagline.model.note.TimeCreated;
 import tagline.model.note.TimeLastEdited;
 import tagline.model.note.Title;
-//import tagline.model.note.NoteId;
 import tagline.model.person.Address;
 import tagline.model.person.Email;
 import tagline.model.person.Name;
@@ -30,6 +30,7 @@ public class NoteBuilder {
 
 
 
+    public static final long DEFAULT_NOTEID = 99999;
     public static final String DEFAULT_TITLE = "The Protector Initiative";
     public static final String DEFAULT_CONTENT = "Phase 1:\n A response team comprised "
         + "of the most able individuals humankind has to offer. The Initiative will "
@@ -46,6 +47,7 @@ public class NoteBuilder {
     private Email email;
     private Address address;
 
+    private NoteId noteId;
     private Title title;
     private Content content;
     private TimeCreated timeCreated;
@@ -53,6 +55,7 @@ public class NoteBuilder {
     private Set<Tag> tags;
 
     public NoteBuilder() {
+        noteId = new NoteId(DEFAULT_NOTEID);
         title = new Title(DEFAULT_TITLE);
         content = new Content(DEFAULT_CONTENT);
         //refactor These two classes to return with the same Instant instance
@@ -68,6 +71,7 @@ public class NoteBuilder {
      * Initializes the NoteBuilder with the data of {@code personToCopy}.
      */
     public NoteBuilder(Note noteToCopy) {
+        noteId = noteToCopy.getNoteId();
         title = noteToCopy.getTitle();
         content = noteToCopy.getContent();
         timeCreated = noteToCopy.getTimeCreated();
@@ -75,6 +79,14 @@ public class NoteBuilder {
         title = noteToCopy.getTitle();
 
         tags = new HashSet<>(noteToCopy.getTags());
+    }
+
+    /**
+     * Sets the {@code Title} of the {@code Note} that we are building.
+     */
+    public NoteBuilder withNoteId(long noteId) {
+        this.noteId = new NoteId(noteId);
+        return this;
     }
 
     /**
@@ -119,7 +131,7 @@ public class NoteBuilder {
     }
 
     public Note build() {
-        return new Note(title, content, timeCreated, timeLastEdited, tags);
+        return new Note(noteId, title, content, timeCreated, timeLastEdited, tags);
     }
 
 }

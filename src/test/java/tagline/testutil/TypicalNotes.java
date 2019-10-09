@@ -2,6 +2,8 @@ package tagline.testutil;
 
 import static tagline.logic.commands.NoteCommandTestUtil.VALID_CONTENT_INCIDENT;
 import static tagline.logic.commands.NoteCommandTestUtil.VALID_CONTENT_PROTECTOR;
+import static tagline.logic.commands.NoteCommandTestUtil.VALID_NOTEID_INCIDENT;
+import static tagline.logic.commands.NoteCommandTestUtil.VALID_NOTEID_PROTECTOR;
 import static tagline.logic.commands.NoteCommandTestUtil.VALID_TIMECREATED_INCIDENT;
 import static tagline.logic.commands.NoteCommandTestUtil.VALID_TIMECREATED_PROTECTOR;
 import static tagline.logic.commands.NoteCommandTestUtil.VALID_TIMELASTUPDATED_INCIDENT;
@@ -32,6 +34,7 @@ import tagline.model.note.Note;
  */
 public class TypicalNotes {
 
+    public static final long NOTEID_TIMEHEIST = 31;
     public static final String TITLE_TIMEHEIST = "Time Heist";
     public static final String CONTENT_TIMEHEIST = "\"Six stones, three teams, one shot. "
         + "Five years ago, we lost. All of us. We lost friends. We lost family. We lost "
@@ -41,6 +44,7 @@ public class TypicalNotes {
     public static final String TIMECREATED_TIMEHEIST = "16-Oct-2023 08:38:09";
     public static final String TIMELASTUPDATED_TIMEHEIST = "17-Oct-2023 17:19:18";
 
+    public static final long NOTEID_ULTRON = 21;
     public static final String TITLE_ULTRON = "Ultron Offensive";
     public static final String CONTENT_ULTRON = "The Ultron Offensive[1] was a series "
         + "of attacks executed by the rogue artificial intelligence, Ultron, in a quest "
@@ -53,11 +57,13 @@ public class TypicalNotes {
     public static final String TIMECREATED_ULTRON = "29-Apr-2015 07:19:05";
     public static final String TIMELASTUPDATED_ULTRON = "06-May-2015 22:18:11";
 
-    public static final Note TIMEHEIST = new NoteBuilder().withTitle(TITLE_TIMEHEIST)
+    public static final Note TIMEHEIST = new NoteBuilder().withNoteId(NOTEID_TIMEHEIST)
+            .withTitle(TITLE_TIMEHEIST)
             .withContent(CONTENT_TIMEHEIST).withTimeCreated(TIMECREATED_TIMEHEIST)
             .withTimeLastUpdated(TIMELASTUPDATED_TIMEHEIST).build();
 
-    public static final Note ULTRON = new NoteBuilder().withTitle(TITLE_ULTRON)
+    public static final Note ULTRON = new NoteBuilder().withNoteId(NOTEID_ULTRON)
+            .withTitle(TITLE_ULTRON)
             .withContent(CONTENT_ULTRON).withTimeCreated(TIMECREATED_ULTRON)
             .withTimeLastUpdated(TIMELASTUPDATED_ULTRON).build();
 
@@ -77,10 +83,13 @@ public class TypicalNotes {
     //        .withEmail("hans@example.com").withAddress("chicago ave").build();
 
     // Manually added - Note's details found in {@code NoteCommandTestUtil}
-    public static final Note PROTECTOR = new NoteBuilder().withTitle(VALID_TITLE_PROTECTOR)
+    public static final Note PROTECTOR = new NoteBuilder().withNoteId(VALID_NOTEID_PROTECTOR)
+            .withTitle(VALID_TITLE_PROTECTOR)
             .withContent(VALID_CONTENT_PROTECTOR).withTimeCreated(VALID_TIMECREATED_PROTECTOR)
             .withTimeLastUpdated(VALID_TIMELASTUPDATED_PROTECTOR).build();
-    public static final Note INCIDENT = new NoteBuilder().withTitle(VALID_TITLE_INCIDENT)
+
+    public static final Note INCIDENT = new NoteBuilder().withNoteId(VALID_NOTEID_INCIDENT)
+            .withTitle(VALID_TITLE_INCIDENT)
             .withContent(VALID_CONTENT_INCIDENT).withTimeCreated(VALID_TIMECREATED_INCIDENT)
             .withTimeLastUpdated(VALID_TIMELASTUPDATED_INCIDENT).build();
 

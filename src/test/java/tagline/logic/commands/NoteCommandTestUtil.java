@@ -26,6 +26,7 @@ import tagline.testutil.EditPersonDescriptorBuilder;
  */
 public class NoteCommandTestUtil {
 
+    public static final long VALID_NOTEID_PROTECTOR = 11;
     public static final String VALID_TITLE_PROTECTOR = "The Protector Initiative";
     public static final String VALID_CONTENT_PROTECTOR = "Phase 1:\n A response team comprised "
             + "of the most able individuals humankind has to offer. The Initiative will "
@@ -34,6 +35,7 @@ public class NoteCommandTestUtil {
     public static final String VALID_TIMECREATED_PROTECTOR = "13-May-1995 15:35:08";
     public static final String VALID_TIMELASTUPDATED_PROTECTOR = "14-May-1995 09:26:11";
 
+    public static final long VALID_NOTEID_INCIDENT = 12;
     public static final String VALID_TITLE_INCIDENT = "Battle of New York";
     public static final String VALID_CONTENT_INCIDENT = "The Battle of New York, also known as "
         + "the Attack on New York, the Attack on Midtown Manhattan, the Manhattan Crisis and "

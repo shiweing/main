@@ -9,9 +9,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static tagline.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 //import static tagline.logic.commands.NoteCommandTestUtil.*;
 import static tagline.logic.commands.NoteCommandTestUtil.VALID_CONTENT_INCIDENT;
-import static tagline.logic.commands.NoteCommandTestUtil.VALID_CONTENT_PROTECTOR;
+//import static tagline.logic.commands.NoteCommandTestUtil.VALID_CONTENT_PROTECTOR;
+import static tagline.logic.commands.NoteCommandTestUtil.VALID_NOTEID_INCIDENT;
+//import static tagline.logic.commands.NoteCommandTestUtil.VALID_NOTEID_PROTECTOR;
 import static tagline.logic.commands.NoteCommandTestUtil.VALID_TIMECREATED_INCIDENT;
-import static tagline.logic.commands.NoteCommandTestUtil.VALID_TIMECREATED_PROTECTOR;
+//import static tagline.logic.commands.NoteCommandTestUtil.VALID_TIMECREATED_PROTECTOR;
 import static tagline.logic.commands.NoteCommandTestUtil.VALID_TIMELASTUPDATED_INCIDENT;
 import static tagline.logic.commands.NoteCommandTestUtil.VALID_TITLE_INCIDENT;
 import static tagline.testutil.Assert.assertThrows;
@@ -40,25 +42,30 @@ public class NoteTest {
         // null -> returns false
         assertFalse(PROTECTOR.isSameNote(null));
 
-        // different phone and email -> returns false
-        Note editedProtector = new NoteBuilder(PROTECTOR).withContent(VALID_CONTENT_INCIDENT)
-            .withTimeCreated(VALID_TIMECREATED_INCIDENT).build();
+        //// different phone and email -> returns false
+        //Note editedProtector = new NoteBuilder(PROTECTOR).withContent(VALID_CONTENT_INCIDENT)
+        //    .withTimeCreated(VALID_TIMECREATED_INCIDENT).build();
+        //assertFalse(PROTECTOR.isSameNote(editedProtector));
+
+        // different id -> returns false
+        Note editedProtector = new NoteBuilder(PROTECTOR).withNoteId(VALID_NOTEID_INCIDENT).build();
+        //.withTimeCreated(VALID_TIMECREATED_PROTECTOR).build();
         assertFalse(PROTECTOR.isSameNote(editedProtector));
 
-        // different content -> returns false
-        editedProtector = new NoteBuilder(PROTECTOR).withContent(VALID_CONTENT_INCIDENT)
-            .withTimeCreated(VALID_TIMECREATED_PROTECTOR).build();
-        assertFalse(PROTECTOR.isSameNote(editedProtector));
+        //// different content -> returns false
+        //editedProtector = new NoteBuilder(PROTECTOR).withContent(VALID_CONTENT_INCIDENT)
+        //    .withTimeCreated(VALID_TIMECREATED_PROTECTOR).build();
+        //assertFalse(PROTECTOR.isSameNote(editedProtector));
 
-        // different timecreated -> returns false
-        editedProtector = new NoteBuilder(PROTECTOR).withContent(VALID_CONTENT_PROTECTOR)
-                .withTimeCreated(VALID_TIMECREATED_INCIDENT).build();
-        assertFalse(PROTECTOR.isSameNote(editedProtector));
+        //// different timecreated -> returns false
+        //editedProtector = new NoteBuilder(PROTECTOR).withContent(VALID_CONTENT_PROTECTOR)
+        //        .withTimeCreated(VALID_TIMECREATED_INCIDENT).build();
+        //assertFalse(PROTECTOR.isSameNote(editedProtector));
 
-        // different content and timecreated -> returns false
-        editedProtector = new NoteBuilder(PROTECTOR).withContent(VALID_CONTENT_INCIDENT)
-                .withTimeCreated(VALID_TIMECREATED_INCIDENT).build();
-        assertFalse(PROTECTOR.isSameNote(editedProtector));
+        //// different content and timecreated -> returns false
+        //editedProtector = new NoteBuilder(PROTECTOR).withContent(VALID_CONTENT_INCIDENT)
+        //        .withTimeCreated(VALID_TIMECREATED_INCIDENT).build();
+        //assertFalse(PROTECTOR.isSameNote(editedProtector));
 
         //// same name, same phone, different attributes -> returns true
         editedProtector = new NoteBuilder(PROTECTOR).withTimeLastUpdated(VALID_TIMELASTUPDATED_INCIDENT)
@@ -95,8 +102,12 @@ public class NoteTest {
         // different note -> returns false
         assertFalse(PROTECTOR.equals(INCIDENT));
 
-        // different name -> returns false
-        Note editedProtector = new NoteBuilder(PROTECTOR).withContent(VALID_CONTENT_INCIDENT).build();
+        // different noteid -> returns false
+        Note editedProtector = new NoteBuilder(PROTECTOR).withNoteId(VALID_NOTEID_INCIDENT).build();
+        assertFalse(PROTECTOR.equals(editedProtector));
+
+        // different content -> returns false
+        editedProtector = new NoteBuilder(PROTECTOR).withContent(VALID_CONTENT_INCIDENT).build();
         assertFalse(PROTECTOR.equals(editedProtector));
 
         // different phone -> returns false
