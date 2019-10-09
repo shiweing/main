@@ -1,24 +1,24 @@
 package tagline.testutil;
 
-import static tagline.logic.commands.NoteCommandTestUtil.VALID_TITLE_PROTECTOR;
+import static tagline.logic.commands.NoteCommandTestUtil.VALID_CONTENT_INCIDENT;
 import static tagline.logic.commands.NoteCommandTestUtil.VALID_CONTENT_PROTECTOR;
+import static tagline.logic.commands.NoteCommandTestUtil.VALID_TIMECREATED_INCIDENT;
 import static tagline.logic.commands.NoteCommandTestUtil.VALID_TIMECREATED_PROTECTOR;
+import static tagline.logic.commands.NoteCommandTestUtil.VALID_TIMELASTUPDATED_INCIDENT;
 import static tagline.logic.commands.NoteCommandTestUtil.VALID_TIMELASTUPDATED_PROTECTOR;
 import static tagline.logic.commands.NoteCommandTestUtil.VALID_TITLE_INCIDENT;
-import static tagline.logic.commands.NoteCommandTestUtil.VALID_CONTENT_INCIDENT;
-import static tagline.logic.commands.NoteCommandTestUtil.VALID_TIMECREATED_INCIDENT;
-import static tagline.logic.commands.NoteCommandTestUtil.VALID_TIMELASTUPDATED_INCIDENT;
+import static tagline.logic.commands.NoteCommandTestUtil.VALID_TITLE_PROTECTOR;
 
-import static tagline.logic.commands.CommandTestUtil.VALID_ADDRESS_AMY;
-import static tagline.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
-import static tagline.logic.commands.CommandTestUtil.VALID_EMAIL_AMY;
-import static tagline.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
-import static tagline.logic.commands.CommandTestUtil.VALID_NAME_AMY;
-import static tagline.logic.commands.CommandTestUtil.VALID_NAME_BOB;
-import static tagline.logic.commands.CommandTestUtil.VALID_PHONE_AMY;
-import static tagline.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
-import static tagline.logic.commands.CommandTestUtil.VALID_TAG_FRIEND;
-import static tagline.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
+//import static tagline.logic.commands.CommandTestUtil.VALID_ADDRESS_AMY;
+//import static tagline.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
+//import static tagline.logic.commands.CommandTestUtil.VALID_EMAIL_AMY;
+//import static tagline.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
+//import static tagline.logic.commands.CommandTestUtil.VALID_NAME_AMY;
+//import static tagline.logic.commands.CommandTestUtil.VALID_NAME_BOB;
+//import static tagline.logic.commands.CommandTestUtil.VALID_PHONE_AMY;
+//import static tagline.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
+//import static tagline.logic.commands.CommandTestUtil.VALID_TAG_FRIEND;
+//import static tagline.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -39,7 +39,7 @@ public class TypicalNotes {
         + "your teams. You know your missions. Get the stones. Get them back.\""
         + "-- Steve Rogers";
     public static final String TIMECREATED_TIMEHEIST = "16-Oct-2023 08:38:09";
-    public static final String TIMELASTUPDATED_TIMEHEIST= "17-Oct-2023 17:19:18";
+    public static final String TIMELASTUPDATED_TIMEHEIST = "17-Oct-2023 17:19:18";
 
     public static final String TITLE_ULTRON = "Ultron Offensive";
     public static final String CONTENT_ULTRON = "The Ultron Offensive[1] was a series "

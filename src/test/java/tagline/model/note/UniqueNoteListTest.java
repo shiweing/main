@@ -3,13 +3,13 @@ package tagline.model.note;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static tagline.logic.commands.NoteCommandTestUtil.VALID_ADDRESS_BOB;
-import static tagline.logic.commands.NoteCommandTestUtil.VALID_TAG_HUSBAND;
+//import static tagline.logic.commands.NoteCommandTestUtil.VALID_ADDRESS_BOB;
+//import static tagline.logic.commands.NoteCommandTestUtil.VALID_TAG_HUSBAND;
 import static tagline.testutil.Assert.assertThrows;
-import static tagline.testutil.TypicalNotes.PROTECTOR;
 import static tagline.testutil.TypicalNotes.INCIDENT;
-import static tagline.testutil.TypicalPersons.ALICE;
-import static tagline.testutil.TypicalPersons.BOB;
+import static tagline.testutil.TypicalNotes.PROTECTOR;
+//import static tagline.testutil.TypicalPersons.ALICE;
+//import static tagline.testutil.TypicalPersons.BOB;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -19,7 +19,7 @@ import org.junit.jupiter.api.Test;
 
 import tagline.model.note.exceptions.DuplicateNoteException;
 import tagline.model.note.exceptions.NoteNotFoundException;
-import tagline.testutil.NoteBuilder;
+//import tagline.testutil.NoteBuilder;
 
 public class UniqueNoteListTest {
 

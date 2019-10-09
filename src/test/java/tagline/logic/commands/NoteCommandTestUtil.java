@@ -34,15 +34,15 @@ public class NoteCommandTestUtil {
     public static final String VALID_TIMECREATED_PROTECTOR = "13-May-1995 15:35:08";
     public static final String VALID_TIMELASTUPDATED_PROTECTOR = "14-May-1995 09:26:11";
 
-    public static final String VALID_TITLE_INCIDENT= "Battle of New York";
-    public static final String VALID_CONTENT_INCIDENT= "The Battle of New York, also known as "
+    public static final String VALID_TITLE_INCIDENT = "Battle of New York";
+    public static final String VALID_CONTENT_INCIDENT = "The Battle of New York, also known as "
         + "the Attack on New York, the Attack on Midtown Manhattan, the Manhattan Crisis and "
         + "the Incident, was a major battle between the Avengers and Loki with his borrowed "
         + "Chitauri army in Manhattan, New York City. According to Loki's plan, it was his "
         + "first battle to subjugate Earth, but the actions of the Avengers neutralized the "
         + "threat of the Chitauri before they could continue the invasion.";
-    public static final String VALID_TIMECREATED_INCIDENT= "04-May-2012 13:12:34";
-    public static final String VALID_TIMELASTUPDATED_INCIDENT= "16-Oct-2023 08:38:09";
+    public static final String VALID_TIMECREATED_INCIDENT = "04-May-2012 13:12:34";
+    public static final String VALID_TIMELASTUPDATED_INCIDENT = "16-Oct-2023 08:38:09";
 
     public static final String VALID_NAME_AMY = "Amy Bee";
     public static final String VALID_NAME_BOB = "Bob Choo";
