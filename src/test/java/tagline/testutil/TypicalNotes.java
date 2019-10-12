@@ -11,16 +11,6 @@ import static tagline.logic.commands.NoteCommandTestUtil.VALID_TIMELASTUPDATED_P
 import static tagline.logic.commands.NoteCommandTestUtil.VALID_TITLE_INCIDENT;
 import static tagline.logic.commands.NoteCommandTestUtil.VALID_TITLE_PROTECTOR;
 
-//import static tagline.logic.commands.CommandTestUtil.VALID_ADDRESS_AMY;
-//import static tagline.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
-//import static tagline.logic.commands.CommandTestUtil.VALID_EMAIL_AMY;
-//import static tagline.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
-//import static tagline.logic.commands.CommandTestUtil.VALID_NAME_AMY;
-//import static tagline.logic.commands.CommandTestUtil.VALID_NAME_BOB;
-//import static tagline.logic.commands.CommandTestUtil.VALID_PHONE_AMY;
-//import static tagline.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
-//import static tagline.logic.commands.CommandTestUtil.VALID_TAG_FRIEND;
-//import static tagline.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -67,14 +57,6 @@ public class TypicalNotes {
             .withContent(CONTENT_ULTRON).withTimeCreated(TIMECREATED_ULTRON)
             .withTimeLastUpdated(TIMELASTUPDATED_ULTRON).build();
 
-    ////public static final Note ALICE = new NoteBuilder().withName("Alice Pauline")
-    ////        .withAddress("123, Jurong West Ave 6, #08-111").withEmail("alice@example.com")
-    ////        .withPhone("94351253")
-    ////        .withTags("friends").build();
-    ////public static final Note BENSON = new NoteBuilder().withName("Benson Meier")
-    ////        .withAddress("311, Clementi Ave 2, #02-25")
-    ////        .withEmail("johnd@example.com").withPhone("98765432")
-    ////        .withTags("owesMoney", "friends").build();
 
     // Manually added
     //public static final Note HOON = new NoteBuilder().withName("Hoon Meier").withPhone("8482424")
@@ -110,6 +92,5 @@ public class TypicalNotes {
 
     public static List<Note> getTypicalNotes() {
         return new ArrayList<>(Arrays.asList(PROTECTOR, INCIDENT, TIMEHEIST, ULTRON));
-        //return new ArrayList<>(Arrays.asList(PROTECTOR, INCIDENT ));
     }
 }
