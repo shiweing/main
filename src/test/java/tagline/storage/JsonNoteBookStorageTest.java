@@ -21,6 +21,8 @@ import org.junit.jupiter.api.io.TempDir;
 import tagline.commons.exceptions.DataConversionException;
 import tagline.model.NoteBook;
 import tagline.model.ReadOnlyNoteBook;
+import tagline.model.note.NoteIdCounter;
+import tagline.testutil.TypicalNotes;
 
 public class JsonNoteBookStorageTest {
     private static final Path TEST_DATA_FOLDER = Paths.get("src", "test", "data", "JsonNoteBookStorageTest");
@@ -65,33 +67,54 @@ public class JsonNoteBookStorageTest {
 
     @Test
     public void readAndSaveNoteBook_allInOrder_success() throws Exception {
+        final String VALID_NOTEIDCOUNT = "329";
+        // save the previous count
+        long currCount = NoteIdCounter.getCount();
+        NoteIdCounter.setZero();
+        // set the NoteIdCounter
+        NoteIdCounter.setCountFromStorage(VALID_NOTEIDCOUNT);
+        assertEquals(VALID_NOTEIDCOUNT, NoteIdCounter.getCount().toString());
+
+
         Path filePath = testFolder.resolve("TempNoteBook.json");
         //to get a copy of how the JSON is stored as
-        //Path filePath2 = TEST_DATA_FOLDER.resolve("TempNoteBook2.json");
+        Path filePath2 = TEST_DATA_FOLDER.resolve("TempNoteBook2.json");
         NoteBook original = getTypicalNoteBook();
         JsonNoteBookStorage jsonNoteBookStorage = new JsonNoteBookStorage(filePath);
 
         // Save in new file and read back
         jsonNoteBookStorage.saveNoteBook(original, filePath);
-        //jsonNoteBookStorage.saveNoteBook(original, filePath2);
+        jsonNoteBookStorage.saveNoteBook(original, filePath2);
+        NoteIdCounter.setZero(); //simulates reset of counter after closing app
         ReadOnlyNoteBook readBack = jsonNoteBookStorage.readNoteBook(filePath).get();
         assertEquals(original, new NoteBook(readBack));
+        //noteIdCounter restores after bringing back a Note
+        assertEquals(VALID_NOTEIDCOUNT, NoteIdCounter.getCount().toString());
 
         // Modify data, overwrite exiting file, and read back
         original.addNote(TOKYO);
         original.removeNote(PROTECTOR);
         jsonNoteBookStorage.saveNoteBook(original, filePath);
-        //jsonNoteBookStorage.saveNoteBook(original, filePath2);
+        NoteIdCounter.setZero(); //simulates reset of counter after closing app
         readBack = jsonNoteBookStorage.readNoteBook(filePath).get();
         assertEquals(original, new NoteBook(readBack));
+        //noteIdCounter restores after bringing back a Note
+        assertEquals(VALID_NOTEIDCOUNT, NoteIdCounter.getCount().toString());
 
         // Save and read without specifying file path
         original.addNote(EARTH);
         jsonNoteBookStorage.saveNoteBook(original); // file path not specified
-        //jsonNoteBookStorage.saveNoteBook(original, filePath2);
+        NoteIdCounter.setZero(); //simulates reset of counter after closing app
         readBack = jsonNoteBookStorage.readNoteBook().get(); // file path not specified
         assertEquals(original, new NoteBook(readBack));
+        //noteIdCounter restores after bringing back a Note
+        assertEquals(VALID_NOTEIDCOUNT, NoteIdCounter.getCount().toString());
 
+
+        jsonNoteBookStorage.saveNoteBook(TypicalNotes.getTypicalNoteBook(), filePath2);
+
+        // Reset Counter to original value to prevent disruption of other test cases
+        NoteIdCounter.setCount(currCount);
     }
 
     @Test
