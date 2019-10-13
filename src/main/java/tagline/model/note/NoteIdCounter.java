@@ -57,8 +57,8 @@ public class NoteIdCounter {
         return counter;
     }
 
-    public static long getCount() {
-        return counter;
+    public static Long getCount() {
+        return Long.valueOf(counter);
     }
 
     /**
