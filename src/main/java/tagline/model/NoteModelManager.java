@@ -147,7 +147,7 @@ public class NoteModelManager implements NoteModel {
         // state check
         NoteModelManager other = (NoteModelManager) obj;
         return noteBook.equals(other.noteBook)
-                && userPrefs.equals(other.userPrefs)
+                //&& userPrefs.equals(other.userPrefs)
                 && filteredNotes.equals(other.filteredNotes);
     }
 

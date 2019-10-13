@@ -133,8 +133,8 @@ public class NoteModelManagerTest {
         //assertEquals(((ContentContainsKeywordsPredicate)((FilteredList<Note>)noteModelManager
         //        .getFilteredNoteList()).getPredicate()).getKeywords(),"");
         // TODO i dun understand why this test isnt passing?
-        assertTrue(true);
-        //assertFalse(noteModelManager.equals(new NoteModelManager(addressBook, userPrefs)));
+        //assertTrue(true);
+        assertFalse(noteModelManager.equals(new NoteModelManager(addressBook, userPrefs)));
 
         // resets noteModelManager to initial state for upcoming tests
         noteModelManager.updateFilteredNoteList(PREDICATE_SHOW_ALL_NOTES);
