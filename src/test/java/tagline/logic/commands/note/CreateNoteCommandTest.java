@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static tagline.testutil.Assert.assertThrows;
 
 import org.junit.jupiter.api.Test;
+
 import tagline.model.note.Note;
 import tagline.testutil.NoteBuilder;
 
