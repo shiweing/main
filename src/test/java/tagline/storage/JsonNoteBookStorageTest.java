@@ -19,8 +19,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
 import tagline.commons.exceptions.DataConversionException;
-import tagline.model.NoteBook;
-import tagline.model.ReadOnlyNoteBook;
+import tagline.model.note.NoteBook;
+import tagline.model.note.ReadOnlyNoteBook;
 import tagline.model.note.NoteIdCounter;
 import tagline.testutil.TypicalNotes;
 

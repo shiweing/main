@@ -12,7 +12,7 @@ import tagline.commons.exceptions.DataConversionException;
 import tagline.commons.exceptions.IllegalValueException;
 import tagline.commons.util.FileUtil;
 import tagline.commons.util.JsonUtil;
-import tagline.model.ReadOnlyNoteBook;
+import tagline.model.note.ReadOnlyNoteBook;
 
 /**
  * A class to access NoteBook data stored as a json file on the hard disk.

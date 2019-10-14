@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 
 import tagline.commons.exceptions.IllegalValueException;
 import tagline.commons.util.JsonUtil;
-import tagline.model.NoteBook;
+import tagline.model.note.NoteBook;
 import tagline.model.note.NoteIdCounter;
 import tagline.testutil.TypicalNotes;
 

@@ -9,9 +9,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 
 import tagline.commons.exceptions.IllegalValueException;
-import tagline.model.NoteBook;
-import tagline.model.ReadOnlyNoteBook;
 import tagline.model.note.Note;
+import tagline.model.note.NoteBook;
+import tagline.model.note.ReadOnlyNoteBook;
 
 /**
  * An Immutable NoteBook that is serializable to JSON format.

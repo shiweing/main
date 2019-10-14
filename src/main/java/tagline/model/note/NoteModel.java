@@ -1,11 +1,12 @@
-package tagline.model;
+package tagline.model.note;
 
 import java.nio.file.Path;
 import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
 import tagline.commons.core.GuiSettings;
-import tagline.model.note.Note;
+import tagline.model.ReadOnlyUserPrefs;
+//import tagline.model.note.Note;
 
 /**
  * The API of the NoteModel component.

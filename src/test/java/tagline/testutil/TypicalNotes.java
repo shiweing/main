@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import tagline.model.NoteBook;
+import tagline.model.note.NoteBook;
 import tagline.model.note.Note;
 
 /**

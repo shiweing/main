@@ -1,9 +1,9 @@
-package tagline.model;
+package tagline.model.note;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static tagline.model.NoteModel.PREDICATE_SHOW_ALL_NOTES;
+import static tagline.model.note.NoteModel.PREDICATE_SHOW_ALL_NOTES;
 import static tagline.testutil.Assert.assertThrows;
 import static tagline.testutil.TypicalNotes.INCIDENT;
 import static tagline.testutil.TypicalNotes.ULTRON;
@@ -16,6 +16,7 @@ import javafx.collections.transformation.FilteredList;
 import org.junit.jupiter.api.Test;
 
 import tagline.commons.core.GuiSettings;
+import tagline.model.UserPrefs;
 import tagline.model.note.ContentContainsKeywordsPredicate;
 import tagline.model.note.Note;
 import tagline.testutil.NoteBookBuilder;
@@ -123,7 +124,8 @@ public class NoteModelManagerTest {
         // different filteredList -> returns false
         // \\s+ splits on single or many whitespace
         noteModelManager = new NoteModelManager(addressBook, userPrefs);
-        String[] keywords = INCIDENT.getContent().value.split("\\s+");
+        //String[] keywords = INCIDENT.getContent().value.split("\\s+");
+        String[] keywords = {"Manhattan", "York", "Loki", "Chitauri"}; //INCIDENT.getContent().value.split("\\s+");
         //String[] key = {"123","123","fefw"};
         //assertEquals("as",INCIDENT.getContent().value);
         noteModelManager.updateFilteredNoteList(new ContentContainsKeywordsPredicate(Arrays.asList(keywords)));
@@ -133,7 +135,7 @@ public class NoteModelManagerTest {
         //assertEquals(((ContentContainsKeywordsPredicate)((FilteredList<Note>)noteModelManager
         //        .getFilteredNoteList()).getPredicate()).getKeywords(),"");
         // TODO i dun understand why this test isnt passing?
-        //assertTrue(true);
+//        assertTrue(true);
         assertFalse(noteModelManager.equals(new NoteModelManager(addressBook, userPrefs)));
 
         // resets noteModelManager to initial state for upcoming tests

@@ -5,10 +5,10 @@ import java.nio.file.Path;
 import java.util.Optional;
 
 import tagline.commons.exceptions.DataConversionException;
-import tagline.model.ReadOnlyNoteBook;
+import tagline.model.note.ReadOnlyNoteBook;
 
 /**
- * Represents a storage for {@link tagline.model.NoteBook}.
+ * Represents a storage for {@link tagline.model.note.NoteBook}.
  */
 public interface NoteBookStorage {
 

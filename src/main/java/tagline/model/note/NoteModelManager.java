@@ -1,4 +1,4 @@
-package tagline.model;
+package tagline.model.note;
 
 import static java.util.Objects.requireNonNull;
 import static tagline.commons.util.CollectionUtil.requireAllNonNull;
@@ -11,7 +11,8 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import tagline.commons.core.GuiSettings;
 import tagline.commons.core.LogsCenter;
-import tagline.model.note.Note;
+import tagline.model.ReadOnlyUserPrefs;
+import tagline.model.UserPrefs;
 
 /**
  * Represents the in-memory model of the address book data.
