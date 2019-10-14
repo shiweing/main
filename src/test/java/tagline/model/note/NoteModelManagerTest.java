@@ -124,18 +124,9 @@ public class NoteModelManagerTest {
         // different filteredList -> returns false
         // \\s+ splits on single or many whitespace
         noteModelManager = new NoteModelManager(addressBook, userPrefs);
-        //String[] keywords = INCIDENT.getContent().value.split("\\s+");
-        String[] keywords = {"Manhattan", "York", "Loki", "Chitauri"}; //INCIDENT.getContent().value.split("\\s+");
-        //String[] key = {"123","123","fefw"};
-        //assertEquals("as",INCIDENT.getContent().value);
+        // using these strings as they are unique to INCIDENT but not found in ULTRON
+        String[] keywords = {"Manhattan", "York", "Loki", "Chitauri"};
         noteModelManager.updateFilteredNoteList(new ContentContainsKeywordsPredicate(Arrays.asList(keywords)));
-        //noteModelManager.updateFilteredNoteList(new ContentContainsKeywordsPredicate(Arrays.asList(key)));
-        //assertEquals(((ContentContainsKeywordsPredicate)((FilteredList<Note>)(new NoteModelManager(addressBook, userPrefs))
-        //        .getFilteredNoteList()).getPredicate()).getKeywords(),"");
-        //assertEquals(((ContentContainsKeywordsPredicate)((FilteredList<Note>)noteModelManager
-        //        .getFilteredNoteList()).getPredicate()).getKeywords(),"");
-        // TODO i dun understand why this test isnt passing?
-//        assertTrue(true);
         assertFalse(noteModelManager.equals(new NoteModelManager(addressBook, userPrefs)));
 
         // resets noteModelManager to initial state for upcoming tests

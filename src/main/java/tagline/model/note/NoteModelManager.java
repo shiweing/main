@@ -132,7 +132,6 @@ public class NoteModelManager implements NoteModel {
         filteredNotes.setPredicate(predicate);
     }
 
-    //TODO for some reason, the equals test isnt passing and i dont know why
     @Override
     public boolean equals(Object obj) {
         // short circuit if same object
