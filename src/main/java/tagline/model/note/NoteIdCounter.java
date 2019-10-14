@@ -66,6 +66,7 @@ public class NoteIdCounter {
      */
     public static boolean isValidNoteIdCount(String test) {
         return test.matches(VALIDATION_REGEX);
+
     }
 
     //@Override

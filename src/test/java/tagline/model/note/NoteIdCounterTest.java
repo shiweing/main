@@ -94,7 +94,6 @@ public class NoteIdCounterTest {
         assertEquals(3, NoteIdCounter.incrementThenGetValue());
         assertEquals(3, NoteIdCounter.getCount());
 
-
         // Reset Counter to original value to prevent disruption of other test cases
         NoteIdCounter.setCount(currCount);
     }
