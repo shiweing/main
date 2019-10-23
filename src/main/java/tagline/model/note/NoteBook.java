@@ -82,14 +82,6 @@ public class NoteBook implements ReadOnlyNoteBook {
     }
 
     /**
-     * Finds a {@code Note} based on the {@code noteId}.
-     * @return Optional object if corresponding note is found, empty otherwise
-     */
-    public Optional<Note> findNote(NoteId noteId) {
-        return notes.findNote(noteId);
-    }
-
-    /**
      * Replaces the given note {@code target} in the list with {@code editedNote}.
      * {@code target} must exist in the address book.
      * The note identity of {@code editedNote} must not be the same as another existing note in the address book.
