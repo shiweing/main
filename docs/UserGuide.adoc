@@ -75,6 +75,12 @@ Format:
 
 === Manage contacts: `contact`
 
+Tagline can help people to manage their contacts easily. When you use contact commands, a view that displays a
+list of contacts will appear in the right pane. The left pane still displays a chat bot for user interaction.
+
+.An example of Contact View
+image::ContactListExample.png[]
+
 ==== Create a contact: `create`
 
 Creates a contact.
@@ -250,23 +256,26 @@ Deletes a group with name '_CS2103-F12-3_'.
 
 === Manage your notes: `note`
 
+Tagline can help people to manage their notes easily. When you use note commands, a view that displays a
+list of notes will appear in the right pane. The left pane still displays a chat bot for user interaction.
+
+.An example of Note View
+image::NoteListExample.png[]
+
 ==== Creates a note: `create`
 
 Creates a new note.
 
 Format:
 
-`note create --c CONTENT`
+`note create [--T TITLE] --c CONTENT`
 
 Example:
 
-* `note create --c Today I don’t feel like doing anything`
+* `note create --c Today I don’t feel like doing anything` +
 Adds a note with content “Today I don’t feel like doing anything”.
-+
-Executing this command will trigger a confirmation in the chatbot:
- `Are you sure that you want to clear all data in your contact list? (Y/N)`
-+
-Then, if you answer "Y", the chatbot will clear all data in your contact list.
+* `note create --T Relax --c Today I don’t feel like doing anything` +
+Adds a note with title "Relax" and content “Today I don’t feel like doing anything”.
 
 NOTE: Upload of image will be supported in v2.0
 
@@ -329,7 +338,7 @@ Example:
 +
 Untags '_#CS2103T_', '_#Duke_' and user with id '_@12300_' and group '_%cs2103T_' from note with id '_00002_'.
 
-==== Filter notes: `list`
+==== List notes: `list`
 
 Lists all notes in the application. Filters can be applied to show only notes related to certain keywords, hashtags, users or groups.
 
@@ -367,6 +376,19 @@ Example:
 |===
 
 NOTE: Filtering by multiple tags will be supported in v2.0
+
+==== Clear all notes: `clear`
+Clears all notes.
+
+Format:
+
+`note clear`
+
+```
+Are you sure that you want to clear all data in your note list? (Y/N)
+```
+
+Then, if you answer "Y", the chatbot will clear all data in your note list.
 
 ==== Sort your notes: `sort` `[coming in v2.0]`
 Sort notes in different orders (i.e last updated date, alphabetically).
