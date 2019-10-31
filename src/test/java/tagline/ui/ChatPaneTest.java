@@ -24,6 +24,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+
 import tagline.logic.Logic;
 import tagline.logic.commands.CommandResult;
 import tagline.testutil.CommandResultBuilder;
@@ -38,8 +39,8 @@ public class ChatPaneTest {
     private static final String EXCEPTION_STRING = "exception";
 
     private static final CommandResult DEFAULT_COMMAND_RESULT = new CommandResultBuilder()
-            .putName(RESPONSE_STRING)
-            .build();
+        .putName(RESPONSE_STRING)
+        .build();
 
     @TempDir
     public Path testFolder;
@@ -48,13 +49,18 @@ public class ChatPaneTest {
     private MainWindow mainWindow;
 
     /**
-     * Set up the main window.
+     * Sets up the stage style. Can only be done once per testing session.
      */
-    private void initMainWindow(Stage stage, Logic logic) throws TimeoutException {
+    private void initStage(Stage stage) {
         if (stage.getStyle() != StageStyle.DECORATED) {
             stage.initStyle(StageStyle.DECORATED);
         }
+    }
 
+    /**
+     * Set up the main window.
+     */
+    private void initMainWindow(Stage stage, Logic logic) throws TimeoutException {
         FxToolkit.setupStage(s -> {
             mainWindow = new MainWindow(s, logic);
             mainWindow.show();
@@ -65,8 +71,10 @@ public class ChatPaneTest {
 
     @Start
     void setUp(Stage stage) throws TimeoutException {
-        logic = new LogicStub(testFolder.resolve("addressbook.json"), testFolder.resolve("notebook.json"));
+        logic = new LogicStub(testFolder.resolve("addressbook.json"), testFolder.resolve("notebook.json"),
+            testFolder.resolve("groupbook.json"), testFolder.resolve("tagbook.json"));
         logic.setCommandResult(DEFAULT_COMMAND_RESULT);
+        initStage(stage);
         initMainWindow(stage, logic);
     }
 
@@ -169,8 +177,8 @@ public class ChatPaneTest {
         assertEquals(5, robot.lookup(".command-dialog").queryAll().size());
         assertEquals(5, robot.lookup(".response-dialog").queryAll().size());
         assertTrue(robot.lookup(".command-dialog").queryAll()
-                .stream().allMatch(dialog -> hasText(COMMAND_TEST_STRING).test(dialog)));
+            .stream().allMatch(dialog -> hasText(COMMAND_TEST_STRING).test(dialog)));
         assertTrue(robot.lookup(".response-dialog").queryAll()
-                .stream().allMatch(dialog -> hasText(RESPONSE_STRING).test(dialog)));
+            .stream().allMatch(dialog -> hasText(RESPONSE_STRING).test(dialog)));
     }
 }

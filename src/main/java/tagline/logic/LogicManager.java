@@ -2,6 +2,7 @@ package tagline.logic;
 
 import java.io.IOException;
 import java.nio.file.Path;
+import java.util.List;
 import java.util.logging.Logger;
 
 import javafx.collections.ObservableList;
@@ -10,6 +11,7 @@ import tagline.commons.core.LogsCenter;
 import tagline.logic.commands.Command;
 import tagline.logic.commands.CommandResult;
 import tagline.logic.commands.exceptions.CommandException;
+import tagline.logic.parser.Prompt;
 import tagline.logic.parser.TaglineParser;
 import tagline.logic.parser.exceptions.ParseException;
 import tagline.model.Model;
@@ -19,6 +21,8 @@ import tagline.model.group.Group;
 import tagline.model.group.ReadOnlyGroupBook;
 import tagline.model.note.Note;
 import tagline.model.note.ReadOnlyNoteBook;
+import tagline.model.tag.ReadOnlyTagBook;
+import tagline.model.tag.Tag;
 import tagline.storage.Storage;
 
 /**
@@ -44,6 +48,27 @@ public class LogicManager implements Logic {
 
         CommandResult commandResult;
         Command command = taglineParser.parseCommand(commandText);
+        commandResult = command.execute(model);
+
+        try {
+            storage.saveAddressBook(model.getAddressBook());
+            storage.saveNoteBook(model.getNoteBook());
+            storage.saveGroupBook(model.getGroupBook());
+            storage.saveTagBook(model.getTagBook());
+        } catch (IOException ioe) {
+            throw new CommandException(FILE_OPS_ERROR_MESSAGE + ioe, ioe);
+        }
+
+        return commandResult;
+    }
+
+    @Override
+    public CommandResult execute(String commandText, List<Prompt> filledPrompts)
+            throws CommandException, ParseException {
+        logger.info("----------------[USER COMMAND][" + commandText + "]");
+
+        CommandResult commandResult;
+        Command command = taglineParser.parseCommand(commandText, filledPrompts);
         commandResult = command.execute(model);
 
         try {
@@ -100,6 +125,21 @@ public class LogicManager implements Logic {
     @Override
     public Path getGroupBookFilePath() {
         return model.getGroupBookFilePath();
+    }
+
+    @Override
+    public ReadOnlyTagBook getTagBook() {
+        return model.getTagBook();
+    }
+
+    @Override
+    public ObservableList<Tag> getFilteredTagList() {
+        return model.getFilteredTagList();
+    }
+
+    @Override
+    public Path getTagBookFilePath() {
+        return model.getTagBookFilePath();
     }
 
     @Override

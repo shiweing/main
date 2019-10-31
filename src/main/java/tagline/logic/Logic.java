@@ -1,11 +1,13 @@
 package tagline.logic;
 
 import java.nio.file.Path;
+import java.util.List;
 
 import javafx.collections.ObservableList;
 import tagline.commons.core.GuiSettings;
 import tagline.logic.commands.CommandResult;
 import tagline.logic.commands.exceptions.CommandException;
+import tagline.logic.parser.Prompt;
 import tagline.logic.parser.exceptions.ParseException;
 import tagline.model.contact.Contact;
 import tagline.model.contact.ReadOnlyAddressBook;
@@ -13,6 +15,8 @@ import tagline.model.group.Group;
 import tagline.model.group.ReadOnlyGroupBook;
 import tagline.model.note.Note;
 import tagline.model.note.ReadOnlyNoteBook;
+import tagline.model.tag.ReadOnlyTagBook;
+import tagline.model.tag.Tag;
 
 /**
  * API of the Logic component
@@ -27,6 +31,13 @@ public interface Logic {
      * @throws ParseException   If an error occurs during parsing.
      */
     CommandResult execute(String commandText) throws CommandException, ParseException;
+
+    /**
+     * Executes the command with some additional prompts.
+     *
+     * @see Logic#execute(String).
+     */
+    CommandResult execute(String commandText, List<Prompt> filledPrompts) throws CommandException, ParseException;
 
     /**
      * Returns the address book.
@@ -71,9 +82,25 @@ public interface Logic {
     ObservableList<Group> getFilteredGroupList();
 
     /**
+     * Returns the user prefs' tag book file path.
+     */
+    Path getTagBookFilePath();
+
+    /**
+     * Returns the tag book.
+     *
+     * @see tagline.model.Model#getTagBook()
+     */
+    ReadOnlyTagBook getTagBook();
+
+    /** Returns an unmodifiable view of the filtered list of tags */
+    ObservableList<Tag> getFilteredTagList();
+
+    /**
      * Returns the user prefs' group book file path.
      */
     Path getGroupBookFilePath();
+
     /**
      * Returns the user prefs' GUI settings.
      */

@@ -20,6 +20,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+
 import tagline.logic.Logic;
 import tagline.logic.commands.CommandResult;
 import tagline.logic.commands.CommandResult.ViewType;
@@ -32,16 +33,16 @@ public class ResultPaneTest {
     private static final String RESPONSE_STRING = "feedback123";
 
     private static final CommandResult CONTACT_COMMAND_RESULT = new CommandResultBuilder()
-            .putName(RESPONSE_STRING)
-            .putViewType(ViewType.CONTACT)
-            .build();
+        .putName(RESPONSE_STRING)
+        .putViewType(ViewType.CONTACT_LIST)
+        .build();
     private static final CommandResult NOTE_COMMAND_RESULT = new CommandResultBuilder()
-            .putName(RESPONSE_STRING)
-            .putViewType(ViewType.NOTE)
-            .build();
+        .putName(RESPONSE_STRING)
+        .putViewType(ViewType.NOTE)
+        .build();
     private static final CommandResult NONE_COMMAND_RESULT = new CommandResultBuilder()
-            .putName(RESPONSE_STRING)
-            .build();
+        .putName(RESPONSE_STRING)
+        .build();
 
     @TempDir
     public Path testFolder;
@@ -50,13 +51,18 @@ public class ResultPaneTest {
     private LogicStub logic;
 
     /**
-     * Set up the main window.
+     * Sets up the stage style. Can only be done once per testing session.
      */
-    private void initMainWindow(Stage stage, Logic logic) throws TimeoutException {
+    private void initStage(Stage stage) {
         if (stage.getStyle() != StageStyle.DECORATED) {
             stage.initStyle(StageStyle.DECORATED);
         }
+    }
 
+    /**
+     * Set up the main window.
+     */
+    private void initMainWindow(Stage stage, Logic logic) throws TimeoutException {
         FxToolkit.setupStage(s -> {
             mainWindow = new MainWindow(s, logic);
             mainWindow.show();
@@ -67,7 +73,9 @@ public class ResultPaneTest {
 
     @Start
     void setUp(Stage stage) throws TimeoutException {
-        logic = new LogicStub(testFolder.resolve("addressbook.json"), testFolder.resolve("notebook.json"));
+        logic = new LogicStub(testFolder.resolve("addressbook.json"), testFolder.resolve("notebook.json"),
+            testFolder.resolve("groupbook.json"), testFolder.resolve("tagbook.json"));
+        initStage(stage);
         initMainWindow(stage, logic);
     }
 
@@ -108,10 +116,11 @@ public class ResultPaneTest {
 
     @Test
     void switchViewToNoteFromContact(FxRobot robot) {
+        sendCommandWithResult(robot, CONTACT_COMMAND_RESULT);
         sendCommandWithResult(robot, NOTE_COMMAND_RESULT);
 
         assertSingleResultView(robot);
-        assertResultViewId(robot, "#noteResultView");
+        assertResultViewId(robot, "#noteListResultView");
     }
 
     @Test
@@ -120,7 +129,7 @@ public class ResultPaneTest {
         sendCommandWithResult(robot, NOTE_COMMAND_RESULT);
 
         assertSingleResultView(robot);
-        assertResultViewId(robot, "#noteResultView");
+        assertResultViewId(robot, "#noteListResultView");
     }
 
     @Test
@@ -129,23 +138,25 @@ public class ResultPaneTest {
         sendCommandWithResult(robot, CONTACT_COMMAND_RESULT);
 
         assertSingleResultView(robot);
-        assertResultViewId(robot, "#contactResultView");
+        assertResultViewId(robot, "#contactListResultView");
     }
 
     @Test
     void switchViewToContactFromContact(FxRobot robot) {
         sendCommandWithResult(robot, CONTACT_COMMAND_RESULT);
+        sendCommandWithResult(robot, CONTACT_COMMAND_RESULT);
 
         assertSingleResultView(robot);
-        assertResultViewId(robot, "#contactResultView");
+        assertResultViewId(robot, "#contactListResultView");
     }
 
     @Test
     void switchViewToNoneFromContact(FxRobot robot) {
+        sendCommandWithResult(robot, CONTACT_COMMAND_RESULT);
         sendCommandWithResult(robot, NONE_COMMAND_RESULT);
 
         assertSingleResultView(robot);
-        assertResultViewId(robot, "#contactResultView");
+        assertResultViewId(robot, "#contactListResultView");
     }
 
     @Test
@@ -154,6 +165,6 @@ public class ResultPaneTest {
         sendCommandWithResult(robot, NONE_COMMAND_RESULT);
 
         assertSingleResultView(robot);
-        assertResultViewId(robot, "#noteResultView");
+        assertResultViewId(robot, "#noteListResultView");
     }
 }

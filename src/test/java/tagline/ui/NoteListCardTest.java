@@ -1,7 +1,7 @@
 package tagline.ui;
 
 import static org.testfx.util.NodeQueryUtils.hasText;
-import static tagline.ui.NoteListCard.UNTITLED_NOTE_STRING;
+import static tagline.ui.note.NoteListCard.UNTITLED_NOTE_STRING;
 
 import java.util.concurrent.TimeoutException;
 
@@ -17,15 +17,27 @@ import org.testfx.framework.junit5.Stop;
 
 import javafx.scene.Node;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import tagline.model.note.Note;
-import tagline.testutil.TypicalNotes;
+import tagline.testutil.note.TypicalNotes;
+import tagline.ui.note.NoteListCard;
 
 @ExtendWith(ApplicationExtension.class)
 public class NoteListCardTest {
     private NoteListCard noteListCard;
 
+    /**
+     * Sets up the stage style. Can only be done once per testing session.
+     */
+    private void initStage(Stage stage) {
+        if (stage.getStyle() != StageStyle.DECORATED) {
+            stage.initStyle(StageStyle.DECORATED);
+        }
+    }
+
     @Start
     void setUp(Stage stage) {
+        initStage(stage);
         stage.setWidth(500); //for human-viewable results
     }
 

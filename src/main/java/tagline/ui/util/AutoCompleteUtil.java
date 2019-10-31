@@ -12,6 +12,7 @@ public class AutoCompleteUtil {
         contactRoot.addChildren(
             new AutoCompleteNode("list"),
             new AutoCompleteNode("create"),
+            new AutoCompleteNode("show"),
             new AutoCompleteNode("delete"),
             new AutoCompleteNode("edit"),
             new AutoCompleteNode("find"),
@@ -23,18 +24,32 @@ public class AutoCompleteUtil {
             new AutoCompleteNode("list"),
             new AutoCompleteNode("create"),
             new AutoCompleteNode("edit"),
-            new AutoCompleteNode("delete")
+            new AutoCompleteNode("delete"),
+            new AutoCompleteNode("tag"),
+            new AutoCompleteNode("untag"),
+            new AutoCompleteNode("clear")
         );
 
         AutoCompleteNode groupRoot = new AutoCompleteNode("group");
         groupRoot.addChildren(
+            new AutoCompleteNode("list"),
             new AutoCompleteNode("create"),
             new AutoCompleteNode("add"),
+            new AutoCompleteNode("remove"),
             new AutoCompleteNode("find")
         );
 
+        AutoCompleteNode tagRoot = new AutoCompleteNode("tag");
+        tagRoot.addChildren(
+            new AutoCompleteNode("list")
+        );
+
+        AutoCompleteNode helpRoot = new AutoCompleteNode("help");
+
+        AutoCompleteNode exitRoot = new AutoCompleteNode("exit");
+
         AutoCompleteNode root = AutoCompleteNode.getRootNode();
-        root.addChildren(contactRoot, noteRoot, groupRoot);
+        root.addChildren(contactRoot, noteRoot, groupRoot, tagRoot, exitRoot, helpRoot);
         return root;
     }
 }

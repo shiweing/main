@@ -2,8 +2,8 @@ package tagline.ui;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.testfx.util.NodeQueryUtils.hasText;
-import static tagline.testutil.TypicalContacts.BENSON_WITH_DESCRIPTION;
-import static tagline.testutil.TypicalContacts.BENSON_WITH_MISSING_FIELDS;
+import static tagline.testutil.contact.TypicalContacts.BENSON_WITH_DESCRIPTION;
+import static tagline.testutil.contact.TypicalContacts.BENSON_WITH_MISSING_FIELDS;
 
 import java.util.concurrent.TimeoutException;
 
@@ -19,14 +19,26 @@ import org.testfx.framework.junit5.Stop;
 
 import javafx.scene.Node;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import tagline.model.contact.Contact;
+import tagline.ui.contact.ContactListCard;
 
 @ExtendWith(ApplicationExtension.class)
 public class ContactListCardTest {
     private ContactListCard contactListCard;
 
+    /**
+     * Sets up the stage style. Can only be done once per testing session.
+     */
+    private void initStage(Stage stage) {
+        if (stage.getStyle() != StageStyle.DECORATED) {
+            stage.initStyle(StageStyle.DECORATED);
+        }
+    }
+
     @Start
     void setUp(Stage stage) {
+        initStage(stage);
         stage.setWidth(500); //for human-viewable results
     }
 
