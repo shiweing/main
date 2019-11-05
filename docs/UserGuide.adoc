@@ -402,7 +402,8 @@ image::NoteListExample.png[width="600"]
 
 ==== Creates a note: `create`
 
-Creates a new note. If any tags are listed, the note will be tagged with them.
+Creates a new note. If any tags are listed, the note will be tagged with them. +
+Notes without title will be titled "Untitled Note"
 
 Format:
 
@@ -574,7 +575,7 @@ image::ug_notelist6.png[width="600"]
 .Entering `note list` command with multiple tag filter
 image::ug_notelist7.png[width="600"]
 
-. Notes tagged with contact of contact id "1" group with group name "cs2103t" are displayed.
+. Notes tagged with contact of contact id "1" or with group with group name "cs2103t" are displayed.
 +
 .Filtered notes displayed
 image::ug_notelist8.png[width="600"]
