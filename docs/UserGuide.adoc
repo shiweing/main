@@ -108,10 +108,10 @@ When given prompts, to minimize inconvenience to you, the autocomplete menu is t
 ====
 *Command Format*
 
-* Words in `UPPER_CASE` are the parameters to be supplied by the user e.g. in `contact create NAME`, `NAME` is a parameter which can be used as `contact create John Doe`.
+* Words in `UPPER_CASE` are the parameters to be supplied by the user e.g. in `contact create --n NAME`, `NAME` is a parameter which can be used as `contact create --n John Doe`.
 * Items in square brackets are optional e.g `[--n NAME]` and `[--e EMAIL]` can be used as `--n John Doe --e j.doe@gmail.com` or only `--n John Doe`.
-* Items with `\*` after them can be used multiple times including zero times e.g. `[--t TAG]*`​ can be used as `<empty>` (i.e. 0 times), `--t friend`, `--t friend --t family`, etc.
-* Items with `+`​ after them can be used one or multiple times e.g. `[--t TAG]+`​ can be used as `--t friend` and `--t friend --t family` but cannot be used as `<empty>` (i.e. 0 times),
+* Items with `\*` after them can be used multiple times including zero times e.g. `[--t TAG]*`​ can be used as `<empty>` (i.e. 0 times), `--t friend`, `--t #friend --t #family`, etc.
+* Items with `+`​ after them can be used one or multiple times e.g. `[--t TAG]+`​ can be used as `--t #friend` and `--t #friend --t #family` but cannot be used as `<empty>` (i.e. 0 times),
 * Parameters can be in any order e.g. `--n NAME --p PHONE_NUMBER` and `--p PHONE_NUMBER --n NAME` are considered the same.
 ====
 
@@ -402,18 +402,27 @@ image::NoteListExample.png[]
 
 ==== Creates a note: `create`
 
-Creates a new note.
+Creates a new note. If any tags are listed, the note will be tagged with them.
 
 Format:
 
-`note create [--T TITLE] --c CONTENT`
+`note create --T TITLE --c CONTENT [--t TAG]*`
+
+IMPORTANT: TITLE and CONTENT cannot be both empty.
 
 Example:
 
-* `note create --c Today I don’t feel like doing anything` +
-Adds a note with content “Today I don’t feel like doing anything”.
-* `note create --T Relax --c Today I don’t feel like doing anything` +
-Adds a note with title "Relax" and content “Today I don’t feel like doing anything”.
+. Let's say you found a resource link that can be referenced for your assignment and you would like to make a note. You can create a note with the resource link as the content with the following command
+`note create --T MIPS --c https://en.wikipedia.org/wiki/MIPS_architecture --t #cs2100 assignment`
++
+.Entering `note create` command
+image::ug_notecreate1.png[]
+
+. A note is created with the title "MIPS" and content "https://en.wikipedia.org/wiki/MIPS_architecture". The note is also tagged with the hashtag "cs2100 assignment". +
+The note created is displayed in the right pane.
++
+.Note created after command execution
+image::ug_notecreate2.png[]
 
 NOTE: Upload of image will be supported in v2.0
 
@@ -427,9 +436,16 @@ Format:
 
 Example:
 
-* `note delete 00002`
+. If you have completed your assignment and would like to delete the note related to the resource link, you can delete with the command `note delete 16`. +
+As the note id is "00016", you can enter "16" as the NOTE_ID parameter.
 +
-Deletes note with id '_00002_'.
+.Entering `note delete` command
+image::ug_notedelete1.png[]
+
+. The note will be deleted from TagLine.
++
+.Note deleted after command execution
+image::ug_notedelete2.png[]
 
 ==== Edit a note: `edit`
 
@@ -437,13 +453,21 @@ Edits a saved note.
 
 Format:
 
-`note edit NOTE_ID --c NEW_CONTENT`
+`note edit NOTE_ID [--T NEW_TITLE] [--c NEW_CONTENT]`
+
+IMPORTANT: Enter the parameters to update.
 
 Example:
 
-* `note edit 00002 --c Today I don’t feel like doing anything`
+. If you find that your note title should have more information, you can enter the command `note edit 16 --T Assigment 2: MIPS`
 +
-Replaces the content of the note which id is '_00002_' with “_Today I don’t feel like doing anything._”
+.Entering `note edit` command
+image::ug_noteedit1.png[]
+
+. The title of the note will be changed from "MIPS" to "Assignment 2: MIPS".
++
+.Note edited after command execution
+image::ug_noteedit2.png[]
 
 NOTE: Upload of image will be supported in v2.0 +
 Partial editing will be supported in v2.0
