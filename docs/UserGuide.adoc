@@ -413,7 +413,7 @@ IMPORTANT: TITLE and CONTENT cannot be both empty.
 Example:
 
 . Let's say you found a resource link that can be referenced for your assignment and you would like to make a note. You can create a note with the resource link as the content with the following command
-`note create --T MIPS --c https://en.wikipedia.org/wiki/MIPS_architecture --t #cs2100 assignment`
+`note create --T MIPS --c https://en.wikipedia.org/wiki/MIPS_architecture --t #assignment`
 +
 .Entering `note create` command
 image::ug_notecreate1.png[]
@@ -459,7 +459,7 @@ IMPORTANT: Enter the parameters to update.
 
 Example:
 
-. If you find that your note title should have more information, you can enter the command `note edit 16 --T Assigment 2: MIPS`
+. If you find that your note title should have more information, you can enter the command `note edit 16 --T CS2100 Assignment: MIPS`
 +
 .Entering `note edit` command
 image::ug_noteedit1.png[]
@@ -535,9 +535,49 @@ Example:
 |Lists all notes tagged with the contact of ID '_12345_'.
 
 |`note list %GROUPNAME`
-|`note list %cs2103 team`
+|`note list %cs2103t`
 |Lists all notes tagged with the group '_cs2103 team_'.
 |===
+
+. When you would like to see all the notes you have in TagLine, you can enter the command `note list`.
++
+.Entering `note list` command
+image::ug_notelist1.png[]
+
+. All notes are displayed.
++
+.All notes displayed
+image::ug_notelist2.png[]
+
+. When you would like to find the notes containg the keyword "cs", you can enter the command `note list cs`.
++
+.Entering `note list` command with keyword
+image::ug_notelist3.png[]
+
+. Notes containing the keyword "cs" are displayed.
++
+.Notes containing keyword displayed
+image::ug_notelist4.png[]
+
+. When you would like to see the notes tagged with the hashtag "assignment", you can enter the command `note list #assignment`.
++
+.Entering `note list` command with tag filter
+image::ug_notelist5.png[]
+
+. Notes tagged with "#assignment" are displayed.
++
+.Filtered tagged notes displayed
+image::ug_notelist6.png[]
+
+. When you would like to filter by multiple tags, you can enter the command `note list @00001 %cs2103t`.
++
+.Entering `note list` command with multiple tag filter
+image::ug_notelist7.png[]
+
+. Notes tagged with contact of contact id "1" group with group name "cs2103t" are displayed.
++
+.Filtered notes displayed
+image::ug_notelist8.png[]
 
 ==== Clear all notes: `clear`
 Clears all notes.
@@ -552,7 +592,10 @@ Executing this command will trigger a confirmation in the chatbot:
 
   Are you sure you want to clear your contact list? Enter 'Y' to continue.
 
-Then, if you answer "Y", the chatbot will clear all data in your contact list.
+.Confirmation for clearing notes
+image::ug_noteclear.png[]
+
+If you answer "Y", the chatbot will clear all data in your contact list. +
 If you press the ESC key, the command will be aborted.
 
 ==== Sort your notes: `sort` `[coming in v2.0]`
