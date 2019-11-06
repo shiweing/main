@@ -110,7 +110,7 @@ When given prompts, to minimize inconvenience to you, the autocomplete menu is t
 
 * Words in `UPPER_CASE` are the parameters to be supplied by the user e.g. in `contact create --n NAME`, `NAME` is a parameter which can be used as `contact create --n John Doe`.
 * Items in square brackets are optional e.g `[--n NAME]` and `[--e EMAIL]` can be used as `--n John Doe --e j.doe@gmail.com` or only `--n John Doe`.
-* Items with `\*` after them can be used multiple times including zero times e.g. `[--t TAG]*`​ can be used as `<empty>` (i.e. 0 times), `--t friend`, `--t #friend --t #family`, etc.
+* Items with `\*` after them can be used multiple times including zero times e.g. `[--t TAG]*`​ can be used as `<empty>` (i.e. 0 times), `--t #friend`, `--t #friend --t #family`, etc.
 * Items with `+`​ after them can be used one or multiple times e.g. `[--t TAG]+`​ can be used as `--t #friend` and `--t #friend --t #family` but cannot be used as `<empty>` (i.e. 0 times),
 * Parameters can be in any order e.g. `--n NAME --p PHONE_NUMBER` and `--p PHONE_NUMBER --n NAME` are considered the same.
 ====
@@ -407,9 +407,9 @@ Notes without title will be titled "Untitled Note"
 
 Format:
 
-`note create --T TITLE --c CONTENT [--t TAG]*`
+`note create [--T TITLE] [--c CONTENT] [--t TAG]*`
 
-IMPORTANT: TITLE and CONTENT cannot be both empty.
+IMPORTANT: TITLE and CONTENT can be optional if the other is defined but cannot be both empty.
 
 Example:
 
@@ -419,7 +419,7 @@ Example:
 .Entering `note create` command
 image::ug_notecreate1.png[width="600"]
 
-. A note is created with the title "MIPS" and content "https://en.wikipedia.org/wiki/MIPS_architecture". The note is also tagged with the hashtag "cs2100 assignment". +
+. A note is created with the title "MIPS" and content "https://en.wikipedia.org/wiki/MIPS_architecture". The note is also tagged with the hashtag "assignment". +
 The note created is displayed in the right pane.
 +
 .Note created after command execution
@@ -465,7 +465,7 @@ Example:
 .Entering `note edit` command
 image::ug_noteedit1.png[width="600"]
 
-. The title of the note will be changed from "MIPS" to "Assignment 2: MIPS".
+. The title of the note will be changed from "MIPS" to "CS2100 Assignment: MIPS".
 +
 .Note edited after command execution
 image::ug_noteedit2.png[width="600"]
@@ -550,12 +550,12 @@ image::ug_notelist1.png[width="600"]
 .All notes displayed
 image::ug_notelist2.png[width="600"]
 
-. When you would like to find the notes containg the keyword "cs", you can enter the command `note list cs`.
+. When you would like to find the notes containing the keyword "cs", you can enter the command `note list cs`.
 +
 .Entering `note list` command with keyword
 image::ug_notelist3.png[width="600"]
 
-. Notes containing the keyword "cs" are displayed.
+. Notes with the keyword "cs" found in the title or content are displayed.
 +
 .Notes containing keyword displayed
 image::ug_notelist4.png[width="600"]
