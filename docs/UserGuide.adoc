@@ -435,6 +435,8 @@ Format:
 
 `note delete NOTE_ID`
 
+IMPORTANT: As assigned note id is static, deleted note id are not reassigned.
+
 Example:
 
 . If you have completed your assignment and would like to delete the note related to the resource link, you can delete with the command `note delete 16`. +
