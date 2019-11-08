@@ -1,7 +1,6 @@
 // @@author shiweing
 package tagline.logic.commands.note;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static tagline.logic.commands.CommandResult.ViewType;
 import static tagline.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static tagline.logic.commands.NoteCommandTestUtil.NON_EXISTING_NOTE_ID;
