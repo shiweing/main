@@ -58,9 +58,6 @@ class DeleteNoteCommandTest {
         Model expectedModel = new ModelManager(model.getNoteBook(), new UserPrefs());
         expectedModel.deleteNote(noteToDelete);
 
-        showNoNote(model);
-        showNoNote(expectedModel);
-
         assertCommandSuccess(deleteNoteCommand, model, expectedMessage, DELETE_NOTE_COMMAND_VIEW_TYPE, expectedModel);
     }
 
@@ -70,14 +67,5 @@ class DeleteNoteCommandTest {
         DeleteNoteCommand deleteNoteCommand = new DeleteNoteCommand(nonExistingNoteId);
 
         NoteCommandTestUtil.assertCommandFailure(deleteNoteCommand, model, Messages.MESSAGE_INVALID_NOTE_INDEX);
-    }
-
-    /**
-     * Updates {@code model}'s filtered list to show no one.
-     */
-    private void showNoNote(Model model) {
-        model.updateFilteredNoteList(p -> false);
-
-        assertTrue(model.getFilteredNoteList().isEmpty());
     }
 }
