@@ -43,6 +43,7 @@ image::Ui.png[width="790"]
 .  Your output will be displayed on the panel on the right. For more features on each command, refer to the Command List.
 .  Refer to <<Command List>> for details of each command.
 
+// tag::learningtagline[]
 == Learning TagLine
 
 Are you new to TagLine? Or are you prone to making typos? In either case, TagLine has some nifty features to help you out.
@@ -66,7 +67,7 @@ image::ug_autocomplete2.png[width="790"]
 image::ug_autocomplete3.png[width="790"]
 
 ====
-*Important Note*
+*Note*
 
 After typing a command, if the autocomplete menu is still showing, please wait a moment for it to disappear, or click elsewhere on the screen. If you press Enter too quickly, this will cause your command to be overwritten.
 ====
@@ -91,7 +92,7 @@ image::ug_prompt2.png[width="790"]
 
 But what if we don't want to proceed with the command? You can abort the command by pressing the Escape key.
 
-.. After step 1 of the above example, let's say you no longer want to create a new command. Press the Escape key.
+.. After step 1 of the above example, let's say you no longer want to create a new contact. Press the Escape key.
 +
 image::ug_prompt3.png[width="790"]
 
@@ -100,8 +101,9 @@ image::ug_prompt3.png[width="790"]
 ====
 *Note*
 
-When given prompts, to minimize inconvenience to you, the autocomplete menu is temporarily disabled. Once prompting is complete, autocomplete will be re-enabled.
+When given prompts, to minimize inconvenience to you, the autocomplete menu is temporarily disabled. Once prompting is complete or aborted, autocomplete will be re-enabled.
 ====
+// end::learningtagline[]
 
 == Command List
 
