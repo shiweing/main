@@ -2,6 +2,7 @@
 :site-section: AboutUs
 :imagesDir: ../images
 :stylesDir: ../stylesheets
+:repoURL: https://github.com/AY1920S1-CS2103T-F12-3/main/tree/master
 
 == PROJECT: Tagline
 
@@ -37,7 +38,11 @@ This section shows a summary of my coding, documentation, and other helpful cont
 ** The implementation was challenging as TagLine has 3 different tags – Hashtags, Contact as tag, and Group name as tag. The note list command has to be implemented such that the filtering applies generally to all 3 tags.
 ** Credit: The architecture and code of note create/delete/edit commands were reused and morphed from AddressBook commands.
 
-**Code contributed:** Please click these links to see a sample of my code: [link:{repoURL}/src/main/java/tagline/logic/parser/note/ListNoteParser.java[ListNoteParser]] [link:{repoURL}/src/main/java/tagline/logic/commands/note/ListNoteCommand.java[ListNoteCommand]] [link:{repoURL}/src/test/java/tagline/logic/parser/note/ListNoteParserTest.java[ListNoteParserTest]][link:{repoURL}/src/test/java/tagline/logic/commands/note/ListNoteCommandTest.java[ListNoteCommandTest]]
+**Code contributed:** Please click these links to see a sample of my code:
+[ link:{repoURL}/src/main/java/tagline/logic/parser/note/ListNoteParser.java[ListNoteParser] ]
+[ link:{repoURL}/src/main/java/tagline/logic/commands/note/ListNoteCommand.java[ListNoteCommand] ]
+[ link:{repoURL}/src/test/java/tagline/logic/parser/note/ListNoteParserTest.java[ListNoteParserTest] ]
+[ link:{repoURL}/src/test/java/tagline/logic/commands/note/ListNoteCommandTest.java[ListNoteCommandTest] ]
 
 **Other contributions:**
 
