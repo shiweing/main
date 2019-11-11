@@ -969,3 +969,88 @@ _{ more test cases ... }_
 .. _{explain how to simulate a missing/corrupted file and the expected behavior}_
 
 _{ more test cases ... }_
+
+=== Creating a note
+
+. Creating a new note
+.. *Test case:* `note create --T TagLine Testing` +
+    *Expected:* Message on successful creation of note displayed with details of the note. The note created appears in the list of notes in the list pane on the right.
+.. *Test case:* `note create --c This is a creation of a note` +
+    Expected: Similar to previous.
+.. *Test case:* `note create --T TagLine Testing --c This is a creation of a note` +
+    *Expected:* Similar to previous.
+.. *Test case:* `note create --T TagLine Testing --c This is a creation of a note --t #testing` +
+    *Expected:* Similar to previous. The note created shown in the note list reflects the tag "#testing".
+
+.. *Test case:* `note create` +
+    *Expected:* No note is created. A message asking for the note content is displayed. +
+... *Subsequent action:* Enter `This is a creation of a note`.
+    *Expected:* Message on successful creation of note displayed with details of the note. The note created appears in the list of notes in the list pane on the right.
+
+.. *Test case:* `note create` +
+    *Expected:* No note is created. A message asking for the note content is displayed. +
+... *Subsequent action:* Press enter without any text.
+Expected: No note is created. An error message is returned with the error details. Command is highlighted red in the command box.
+
+.. *Test case:* `note create --T This is a title of too many characters, more than 50` +
+    *Expected:* No note is created. An error message is returned with the error details. Command is highlighted red in the command box.
+
+=== Deleting a note
+
+. Deleting a note
+
+.. *Test case:* `note delete 1` +
+    *Expected:* Note with the id of "1" is deleted from the note list. A message indicating successful note deletion is displayed with the details of deleted note. +
+    **_An assigned note id is static, deleted note id are not reassigned._*
+.. *Test case:* `note delete 1` (Ensure note with ID '1' is has been removed) +
+    *Expected:* No note is deleted. An error message is displayed with the error details. Command is highlighted red in the command box.
+.. *Test case:* `note delete a` +
+    *Expected:* Similar to previous.
+.. *Test case:* `note delete X` (Where X is an is a number not used as a note id i.e -1) +
+    *Expected:* Similar to previous.
+
+=== Editing a note
+. Editing the sample note with id 2 upon launch
+.. *Prerequisite:* Ensure the sample notes appear in the application and note #2 is an untitled note.
+
+.. *Test case:* `note edit` +
+    *Expected:* No note is edited. An error message is displayed with the error details. Command is highlighted red in the command box.
+.. *Test case:* `note edit 2` +
+    *Expected:* Similar to previous.
+.. *Test case:* `note edit 2 --c ````` (With a space after '--c' as the prefix is '--c ') +
+    *Expected:* Similar to previous.
+.. *Test case:* `note edit 2 --c Team Meeting - Wed 4pm` +
+    *Expected:* Message on successful edit of note displayed with details of the note. The note edited is reflected in the list of notes in the list pane on the right.
+.. *Test case:* `note edit 2 --T CS2103T Meeting` +
+    *Expected:* Similar to previous.
+
+=== Listing and filtering notes
+
+. Listing all notes
+.. Prerequisite: Change list pane to list other information. E.g. `contact list`
+.. Test case: `note list` +
+    Expected: Message on successful listing is displayed. All notes are listed in the list pane on the right pane.
+
+. Filtering notes by keywords in content
+.. Test case: `note list cs` +
+    Expected: Message on successful listing is displayed. Notes containing keyword are listed in the list pane on the right pane.
+.. Test case: `note list team bug` +
+    Expected:  Message on successful listing is displayed. Notes containing any of the keywords are listed in the list pane on the right pane.
+.. Test case: `note list notfound` +
+    Expected: No notes are listed. Message is displayed stating that no notes matching keyword is found.
+
+. Filtering notes by tag
+.. Prerequisite: Ensure the sample tags are in the application with `tag list`
+
+.. Test case: `note list #songs` +
+    Expected: Message on successful listing is displayed. Notes tagged by specified tag are listed in the list pane on the right pane.
+.. Test case: `note list @1` +
+    Expected: Similar to previous.
+.. Test case: `note list %cs2103t` +
+    Expected: Similar to previous.
+.. Test case: `note list @1 %cs2103t` +
+    Expected: Similar to previous. Notes tagged by any of the tags specified are listed in the list pane on the right pane.
+.. Test case: `note list #notfound` +
+    Expected: No notes are listed. Message is displayed stating that tag cannot be found.
+.. Test case: `note list #songs #notfound` +
+    Expected: Similar to previous.
