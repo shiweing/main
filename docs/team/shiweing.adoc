@@ -14,7 +14,7 @@ My team of 5 software engineering students were tasked with enhancing a basic co
 This is  what our project looks like:
 
 .The graphical user interface for TagLine
-image::ui_main.png[width=330]
+image::tagline_screenshot.png[width=330]
 
 My role was to design and write the codes for the note commands, including basic add, delete, edit command as well as a filter feature. The following sections illustrate these enhancements in more detail, as well as the relevant documentation I have added to the user and developer guides in relation to these enhancements.
 
